@@ -1,0 +1,82 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class Draw : MonoBehaviour
+{
+    
+    public Camera m_camera;
+    public GameObject brush;
+    public GameObject pen_tip;
+
+    LineRenderer currentLineRenderer;
+
+    public Vector3 lastPos;
+    public Vector3 penPos;
+
+    public bool isPainting;
+
+    private void Update()
+    {
+        if (isPainting)
+            Drawing();
+    }
+
+    void Drawing()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            CreateBrush();
+        }
+
+        else if (Input.GetMouseButton(0))
+         {
+            PointToPenPos();
+
+        }
+        else
+        {
+            currentLineRenderer = null;
+        }
+    }
+
+    void CreateBrush()
+    {
+
+        penPos = pen_tip.transform.position;
+        GameObject brushInstance = Instantiate(brush);
+
+        brushInstance.transform.position = penPos;
+
+        //Debug.Log("penPos: " + penPos + ", " + "brushPos: " + brushInstance.transform.position);
+        currentLineRenderer = brushInstance.GetComponent<LineRenderer>();
+
+    }
+
+    void AddAPoint(Vector3 pointPos)
+    {
+        currentLineRenderer.positionCount++;
+        int positionIndex = currentLineRenderer.positionCount - 1;
+        currentLineRenderer.SetPosition(positionIndex, pointPos);
+        //Debug.Log("adding a point: " + "penPos: " + penPos + ", " + "point: " + pointPos);
+
+    }
+
+    void PointToPenPos()
+    {
+        penPos = pen_tip.transform.position;
+        Debug.Log("pen tip position when drawing: " + penPos);
+
+        if (lastPos != penPos)
+        {
+            AddAPoint(penPos);
+            lastPos = penPos;
+        }
+    }
+
+
+    
+}
+
+
