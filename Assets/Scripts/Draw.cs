@@ -66,7 +66,7 @@ public class Draw : MonoBehaviour
     void PointToPenPos()
     {
         penPos = pen_tip.transform.position;
-        Debug.Log("pen tip position when drawing: " + penPos);
+        //Debug.Log("pen tip position when drawing: " + penPos);
 
         if (lastPos != penPos)
         {
