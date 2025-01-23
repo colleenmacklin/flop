@@ -6,10 +6,11 @@ public class mouse_control : MonoBehaviour
 {
     public Vector3 screenPosition;
     public Vector3 worldPosition;
+    public Vector3 _starting_position;
+
     public float moveSpeed = 0.1f;
     public new Rigidbody rigidbody;
     public GameObject pen;
-    private Vector3 _starting_position;
     Plane plane = new Plane(Vector3.back, 0);
 
 
@@ -17,6 +18,7 @@ public class mouse_control : MonoBehaviour
     {
         //_starting_position = Camera.main.ScreenToWorldPoint(rigidbody.position);
         _starting_position = pen.transform.position;
+
 
     }
 

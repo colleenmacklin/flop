@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,11 +16,15 @@ public class Draw : MonoBehaviour
     public Vector3 lastPos;
     public Vector3 penPos;
 
-    public bool isPainting;
+    public bool isActive;
+    public bool isWriting = false;
+
+    //public static event Action <GameObject> onDrawing;
+
 
     private void Update()
     {
-        if (isPainting)
+        if (isActive)
             Drawing();
     }
 
@@ -28,6 +33,8 @@ public class Draw : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CreateBrush();
+            isWriting = true;
+            //onDrawing?.Invoke(this.gameObject);
         }
 
         else if (Input.GetMouseButton(0))
@@ -38,6 +45,9 @@ public class Draw : MonoBehaviour
         else
         {
             currentLineRenderer = null;
+            isWriting = false;
+
+
         }
     }
 
