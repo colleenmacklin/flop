@@ -5,14 +5,11 @@ using UnityEngine;
 public class pad : MonoBehaviour
 {
     public Material paper;
-    public List<Texture> letters;
+    public GameObject letter;
 
-    void change_letter (Texture letter)
+    void change_letter (GameObject letter)
     {
-        if ((letter != null) && (paper != null))
-        {
-            paper.SetTexture("_MainTex", letter);
-        }
+        //change child object (starts with "A")
     }
 
     // Start is called before the first frame update
