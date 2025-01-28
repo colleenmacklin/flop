@@ -7,10 +7,13 @@ public class mouse_control : MonoBehaviour
     public Vector3 screenPosition;
     public Vector3 worldPosition;
     public Vector3 _starting_position;
+    public Vector3 mouse_offset;
+
 
     public float moveSpeed = 0.1f;
     public new Rigidbody rigidbody;
     public GameObject pen;
+
     Plane plane = new Plane(Vector3.back, 0);
 
 
@@ -32,20 +35,6 @@ public class mouse_control : MonoBehaviour
             worldPosition = ray.GetPoint(distance);
         }
 
-        rigidbody.position = worldPosition;
-        //TODO: this needs to be fixed so the position isn't tied to the camera
-        //rigidbody.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-
-        //this one works ok...
-        //rigidbody.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _starting_position.z));
-
-
-        //debugging
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log(mousePosition);
-        }
-        */
+        rigidbody.position = worldPosition+mouse_offset;
     }
 }

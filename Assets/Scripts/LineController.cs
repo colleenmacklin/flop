@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineController))]
@@ -32,3 +32,4 @@ public class LineController : MonoBehaviour
         return lr.startWidth;
     }
 }
+*/
