@@ -21,6 +21,8 @@ public class mouse_control : MonoBehaviour
     {
         //_starting_position = Camera.main.ScreenToWorldPoint(rigidbody.position);
         _starting_position = pen.transform.position;
+        //Set Cursor to not be visible
+        Cursor.visible = false;
 
 
     }
