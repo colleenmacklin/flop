@@ -11,6 +11,8 @@ public class Draw : MonoBehaviour
     public GameObject brush;
     public GameObject pen_tip;
 
+    public bool forceDraw = false;
+
     LineRenderer currentLineRenderer;
 
     public Vector3 lastPos;
@@ -30,24 +32,21 @@ public class Draw : MonoBehaviour
 
     void Drawing()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || forceDraw && !isWriting)
         {
             CreateBrush();
             isWriting = true;
             //onDrawing?.Invoke(this.gameObject);
         }
 
-        else if (Input.GetMouseButton(0))
+        else if (Input.GetMouseButton(0) || forceDraw && isWriting)
          {
             PointToPenPos();
-
         }
         else
         {
             currentLineRenderer = null;
             isWriting = false;
-
-
         }
     }
 
