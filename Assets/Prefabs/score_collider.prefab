@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3631001182940888024}
   - component: {fileID: 58706675464263122}
   - component: {fileID: 3987772929259222727}
-  - component: {fileID: 5983132485042863926}
+  - component: {fileID: 6899161799802202909}
   m_Layer: 0
-  m_Name: collider
+  m_Name: score_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,8 +106,8 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0.000000007450581, y: 0, z: 0}
---- !u!114 &5983132485042863926
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6899161799802202909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hit: 0
   my_collider: {fileID: 3987772929259222727}
+  targetPLayer: {fileID: 0}
+  scoreValue: 5
 --- !u!1 &2458439852373903796
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8166688664515199528
 Transform:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2458439852373903796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca323e22713fb3a40af2f80e436eb449, type: 3}
   m_Name: 

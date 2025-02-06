@@ -5,7 +5,7 @@ using UnityEngine;
 public class pad : MonoBehaviour
 {
     public Material paper;
-    public GameObject letter;
+    public GameObject [] letters;
 
     void change_letter (GameObject letter)
     {

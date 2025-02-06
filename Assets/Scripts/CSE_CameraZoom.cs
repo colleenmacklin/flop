@@ -6,7 +6,8 @@ using Unity.Cinemachine;
 public class CSE_CameraZoom : CutsceneElementBase
 {
     [SerializeField] private float targetFOV;
-    [SerializeField] private Transform target;
+    [SerializeField] public Transform target;
+
     [SerializeField] private Vector3 offset;
     private Camera cam;
 
@@ -19,6 +20,7 @@ public class CSE_CameraZoom : CutsceneElementBase
         cam = cutscenehandler.cam;
         //cm_cam = cutscenehandler.cm_cam; //cinemachine cameras
         //cm_cam.Follow = null;
+        Debug.Log("zoom cutscene started");
         StartCoroutine(ZoomCamera());
     }
 
@@ -55,7 +57,7 @@ public class CSE_CameraZoom : CutsceneElementBase
         //cm_cam.m_Lens.FieldOfView = targetFOV;
         //cm_cam.transform.position = targetPosition;
 
-        cutscenehandler.PlayNextElement();
+        //cutscenehandler.PlayNextElement(); //CM removed for handwrting use case
     }
     private void onDestroy()
     {

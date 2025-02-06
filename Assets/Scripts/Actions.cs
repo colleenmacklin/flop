@@ -7,5 +7,7 @@ public static class Actions
 
     public static Action onMouseActivate;
     public static Action onMouseDeactivate;
+
+    public static Action <GameObject> onPenOver;
      
 }

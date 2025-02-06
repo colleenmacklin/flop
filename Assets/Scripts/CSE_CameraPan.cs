@@ -6,7 +6,7 @@ using Unity.Cinemachine;
 public class CSE_CameraPan : CutsceneElementBase
 {
     private Camera cam;
-    private CinemachineCamera cm_cam; //for a cinemachine camera
+    //private CinemachineCamera cm_cam; //for a cinemachine camera
 
     [SerializeField] private Vector3 distanceToMove;
 
