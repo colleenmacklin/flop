@@ -77,7 +77,7 @@ public class handwritingManager : MonoBehaviour
         //then go into main loop
         CurrentGameState = GameState.Loop;
         Debug.Log("----->loop");
-        Debug.Log("Letters array length   "+_letters.Length + "Last letter: " + _letters[25].name);
+        //Debug.Log("Letters array length   "+_letters.Length + "Last letter: " + _letters[25].name);
         letterIndex = 0; //start with "A"
         _letter = _letters[letterIndex].GetComponent<letter>(); //create reference to letter class
         onEnterLetter(_letter);
@@ -122,18 +122,24 @@ public class handwritingManager : MonoBehaviour
 
     void onEnterLetter(letter l)
     {
+        Debug.Log("------------entering letter: " + _letter);
         Actions.timerReset();
+
         resetScore();
 
+        //make sure the colliders are turned on
+
+        foreach (GameObject sc in _letter.score_colliders)
+        {
+            sc.GetComponent<score_collision>().collisionEnabled = true;
+            //sc.SetActive(false);
+        }
 
         //Setup the next letter in the sequence
-        if (letterIndex < _letters.Length-1)
+        if (letterIndex < _letters.Length)
         {
             //set next location
             cameraZoom.target = l.nextLetter.transform;
-
-            letterIndex += 1;
-            nextLetter(_letters[letterIndex]);
         }
         else
         {
@@ -149,6 +155,8 @@ public class handwritingManager : MonoBehaviour
         if (CurrentGameState == GameState.Loop)
         {
             //setup next letter
+            letterIndex += 1;
+            nextLetter(_letters[letterIndex]);
             onEnterLetter(_letter); //new letter has been centered on the screen and is in play
         }
         else
@@ -162,10 +170,13 @@ public class handwritingManager : MonoBehaviour
     {
         //move camera, show score, add score to global score, reset score
         Debug.Log("time is up on letter :" + _letter.name);
+        foreach (GameObject sc in _letter.score_colliders) //turn off colliders in letter
+        {
+            sc.GetComponent<score_collision>().collisionEnabled = false;
+            //sc.SetActive(false);
+        }
 
-        StartCoroutine(giveLetterScoreFeedback(ScoreDuration));
-
-        StartCoroutine(ZoomToNextLetter(ZoomDuration));
+        giveLetterScoreFeedback(letter_score);
     }
 
 
@@ -176,22 +187,18 @@ public class handwritingManager : MonoBehaviour
         num_hit = 0;
         letter_score = 0;
         scoreBar.UpdateBar(letter_score, 0f, 100f);
-
     }
 
     void tally(GameObject g) //probably don't need to pass gameobject as a reference
     {
-        //Debug.Log("collided with: " + g);
         num_hit++;//add to the number of spot hit on the letter to send to scoring (out of 20)
-
         //update Scorebar
         letter_score = (num_hit * 100f / _letter.score_colliders.Count);
         scoreBar.UpdateBar(letter_score, 0f, 100f);
     }
 
 
-
-    IEnumerator giveLetterScoreFeedback(float ScoreDuration)
+    void giveLetterScoreFeedback(float _score)
     {
         switch (letter_score)
         {
@@ -215,14 +222,14 @@ public class handwritingManager : MonoBehaviour
                 break;
             case 100:
                 print(letter_score + "100 percent!");
+                Actions.onPerfectScore();
                 break;
-
             default:
                 print("Incorrect intelligence level.");
                 break;
         }
-
-        yield return new WaitForSeconds(ScoreDuration);
+        Actions.onShowLetterScore(letter_score);
+        StartCoroutine(ZoomToNextLetter(ZoomDuration));
 
     }
 
@@ -233,6 +240,8 @@ public class handwritingManager : MonoBehaviour
         yield return new WaitForSeconds(zoomDuration);
         cutscenehandler.cutsceneElements.Add(cameraZoom);
         cutscenehandler.PlayNextElement();
+        //resetScore();
+
     }
 
     private void onDestroy()

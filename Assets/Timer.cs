@@ -49,7 +49,7 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time is up");
+                //Debug.Log("Time is up");
                 timeLeft = 0;
                 TimerOn = false;
                 Actions.onTimeUp();

@@ -12,4 +12,8 @@ public static class Actions
     public static Action onTimeUp;
     public static Action timerReset;
     public static Action onCutsceneFinished;
+
+    public static Action<float> onShowLetterScore ;
+    public static Action onPerfectScore;
+
 }

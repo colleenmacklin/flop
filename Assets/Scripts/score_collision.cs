@@ -12,37 +12,38 @@ public class score_collision : MonoBehaviour
     public String scoreValue = "1";
     public Draw _draw;
 
+    public bool collisionEnabled;
+
     private void Start()
     {
-        //my_collider.isTrigger = true;
+        collisionEnabled = true;
+        my_collider.isTrigger = true;
     }
+
 
     public void Update()
     {
-        /*test code for FEEL
-        if (Input.GetKeyDown(name: "space"))
+        if (!collisionEnabled)
         {
-            MMF_FloatingText floatingTextFeedback = targetPLayer.GetFeedbackOfType<MMF_FloatingText>();
-            floatingTextFeedback.Value = "5";
-            //float myIntensity = UnityEngine.Random.Range(0f, 100f);
-            targetPLayer.PlayFeedbacks(this.transform.position);
-
+            my_collider.enabled = false;
         }
-        */
     }
+
 
     void OnTriggerEnter(Collider c)
     {
 
         if (c.tag == "Player")
         {
-            if (_draw.isWriting) 
+            if (_draw.isWriting && collisionEnabled) 
             //if (hit == false && c.isTrigger)
             {
                 OnScore?.Invoke(c.gameObject);
                 //Debug.Log("Entered collision with " + objectName.gameObject.name);
                 hit = true;
-                my_collider.enabled = false;
+                targetPLayer.PlayFeedbacks(this.transform.position);
+                collisionEnabled = false;
+                //my_collider.enabled = false;
                 //MMF_FloatingText floatingTextFeedback = targetPLayer.GetFeedbackOfType<MMF_FloatingText>();
                 //floatingTextFeedback.Value = scoreValue;
                 //float myIntensity = UnityEngine.Random.Range(0f, 100f);
