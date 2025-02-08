@@ -19,7 +19,7 @@ public class score_collision : MonoBehaviour
 
     public void Update()
     {
-        /*test code
+        /*test code for FEEL
         if (Input.GetKeyDown(name: "space"))
         {
             MMF_FloatingText floatingTextFeedback = targetPLayer.GetFeedbackOfType<MMF_FloatingText>();
@@ -42,7 +42,7 @@ public class score_collision : MonoBehaviour
                 OnScore?.Invoke(c.gameObject);
                 //Debug.Log("Entered collision with " + objectName.gameObject.name);
                 hit = true;
-                //my_collider.isTrigger = false;
+                my_collider.enabled = false;
                 //MMF_FloatingText floatingTextFeedback = targetPLayer.GetFeedbackOfType<MMF_FloatingText>();
                 //floatingTextFeedback.Value = scoreValue;
                 //float myIntensity = UnityEngine.Random.Range(0f, 100f);

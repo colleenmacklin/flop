@@ -13,22 +13,9 @@ public class letter : MonoBehaviour
     public bool isPenOver = false;
 
     public List<GameObject> score_colliders;
-    public int num_hit = 0;
-
-    [SerializeField] public MMProgressBar scoreBar;
-    [Range(0f, 100f)] public float value;
 
     public GameObject nextLetter;
 
-    private void OnEnable()
-    {
-        score_collision.OnScore += tally;
-    }
-
-    private void OnDisable()
-    {
-        score_collision.OnScore -= tally;
-    }
 
     private void Start()
     {
@@ -39,11 +26,11 @@ public class letter : MonoBehaviour
     {
         if (c.gameObject.tag == "Player") { 
             isPenOver = true;
-            Actions.onPenOver(this.gameObject);
+            //Actions.onPenOver(this.gameObject);
         }
     }
 
-    private void  OnTriggerInside(Collider c)
+    private void OnTriggerInside(Collider c)
     {
         if (c.gameObject.tag == "Player")
         {
@@ -57,22 +44,21 @@ public class letter : MonoBehaviour
     {
         if (c.gameObject.tag == "Player") { 
             isPenOver = false;
-            //add to total score (on handwriting handler)
 
-            //reset scorebar to 0
-            scoreBar.SetBar(0f, 0f, 100f);
         }
     }
 
-
+    /*
     void tally(GameObject g)
     {
         //Debug.Log("collided with: " + g);
         num_hit++;//add to the number of spot hit on the letter to send to scoring (out of 20)
                   //update Scorebar
         float total_score = (num_hit*100f/score_colliders.Count);
-        scoreBar.UpdateBar(total_score, 0f, 100f);
+        value = total_score;
+        scoreBar.UpdateBar(value, 0f, 100f);
+        //scoreBar.UpdateBar(total_score, 0f, 100f);
 
     }
-
+    */
 }

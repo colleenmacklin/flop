@@ -11,6 +11,7 @@ public class CSE_CameraZoom : CutsceneElementBase
     [SerializeField] private Vector3 offset;
     private Camera cam;
 
+
     //private CinemachineCamera cm_cam; //for cinemachine cameras
 
 
@@ -34,6 +35,10 @@ public class CSE_CameraZoom : CutsceneElementBase
         float OriginalSize = cam.fieldOfView;
         //float OriginalSize = cm_cam.m_Lens.FieldOfView;
 
+        if (delay)
+        {
+            yield return new WaitForSeconds(delayTime);
+        }
 
         float startTime = Time.time;
         float elapsedTime = 0;
@@ -53,9 +58,9 @@ public class CSE_CameraZoom : CutsceneElementBase
         }
         cam.fieldOfView = targetFOV;
         cam.transform.position = targetPosition;
-
         //cm_cam.m_Lens.FieldOfView = targetFOV;
         //cm_cam.transform.position = targetPosition;
+        Actions.onCutsceneFinished();
 
         //cutscenehandler.PlayNextElement(); //CM removed for handwrting use case
     }

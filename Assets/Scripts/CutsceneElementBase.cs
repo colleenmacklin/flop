@@ -7,6 +7,9 @@ public class CutsceneElementBase : MonoBehaviour
     public float duration;
     public CutSceneHandler cutscenehandler { get; private set; }
 
+    public bool delay;
+    public float delayTime;
+
     public void Start()
     {
         cutscenehandler = GetComponent<CutSceneHandler>();
