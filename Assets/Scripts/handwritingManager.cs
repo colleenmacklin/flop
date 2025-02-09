@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using MoreMountains.Tools;
 using MoreMountains.Feedbacks;
+using MoreMountains.FeedbacksForThirdParty;
 
 public enum GameState
 {
@@ -21,16 +22,17 @@ public class handwritingManager : MonoBehaviour
     public pad paper;
     public Timer timer;
     [SerializeField] private letter _letter;
-    [SerializeField] private GameObject [] _letters;
+    [SerializeField] private GameObject [] _lettersGO;
     [SerializeField] private CutSceneHandler cutscenehandler;
     [SerializeField] private CSE_CameraZoom cameraZoom;
+    public GameObject pen;
     public Draw penDraw;
 
     [Header("values")]
     public float ZoomDuration = 2f;
     public float ScoreDuration = 2f;
     [SerializeField] private int letterIndex;
-
+    [SerializeField] private GameObject interstitial_transform;
 
     //public bool timeUp = false;
 
@@ -42,7 +44,9 @@ public class handwritingManager : MonoBehaviour
     [SerializeField] public MMProgressBar scoreBar;
     [Range(0f, 100f)] public float value;
 
-    public MMF_Player feedbacksPLayer;
+    public Camera maincamera;
+
+    //public MMF_Player feedbacksPLayer;
 
     //public bool IsInsideLetter;
 
@@ -63,6 +67,7 @@ public class handwritingManager : MonoBehaviour
     private void Awake()
     {
         CurrentGameState = GameState.Intro;
+
     }
 
     private void Start()
@@ -74,13 +79,21 @@ public class handwritingManager : MonoBehaviour
     {
         Debug.Log("----->intro");
         //do intro stuff
-        //then go into main loop
-        CurrentGameState = GameState.Loop;
-        Debug.Log("----->loop");
-        //Debug.Log("Letters array length   "+_letters.Length + "Last letter: " + _letters[25].name);
-        letterIndex = 0; //start with "A"
-        _letter = _letters[letterIndex].GetComponent<letter>(); //create reference to letter class
-        onEnterLetter(_letter);
+
+        pen.SetActive(false); //hide & deactivate pen
+    }
+
+    public void StartGameLoop()
+    {
+        //wait for a moment before starting the main loop
+        cameraZoom.delay = true;
+        cameraZoom.delayTime = 1f;
+
+        //Setup the next letter in the sequence
+        cameraZoom.target = _letter.currentLetter.transform;
+        //start the gameloop
+        //CurrentGameState = GameState.Loop;
+        StartCoroutine(introCutscene(2f));
     }
 
     void playEnding()
@@ -109,14 +122,14 @@ public class handwritingManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Z))
         {
             letterIndex = 25;
-            _letter = _letters[letterIndex].GetComponent<letter>(); //create reference to letter class
+            _letter = _lettersGO[letterIndex].GetComponent<letter>(); //create reference to letter class
             onEnterLetter(_letter);
         }
     }
 
     void nextLetter(GameObject l)
     {
-        _letter = _letters[letterIndex].GetComponent<letter>(); //create reference to letter class
+        _letter = _lettersGO[letterIndex].GetComponent<letter>(); //create reference to letter class
     }
 
 
@@ -124,7 +137,6 @@ public class handwritingManager : MonoBehaviour
     {
         Debug.Log("------------entering letter: " + _letter);
         Actions.timerReset();
-
         resetScore();
 
         //make sure the colliders are turned on
@@ -132,39 +144,65 @@ public class handwritingManager : MonoBehaviour
         foreach (GameObject sc in _letter.score_colliders)
         {
             sc.GetComponent<score_collision>().collisionEnabled = true;
-            //sc.SetActive(false);
         }
 
         //Setup the next letter in the sequence
-        if (letterIndex < _letters.Length)
+        if (letterIndex < _lettersGO.Length)
         {
             //set next location
             cameraZoom.target = l.nextLetter.transform;
+            Debug.Log("nextLetter is: "+ l.nextLetter.name);
         }
         else
         {
             Debug.Log("last letter");
             playEnding();
         }
+
+        if (!pen.activeSelf)
+        {
+            pen.SetActive(true);
+
+        }
+
     }
 
     void cutSceneFinished()
     {
         //received message from CSE CameraZoom cutSceneFinished....
-        //start a timer
-        if (CurrentGameState == GameState.Loop)
+        switch (CurrentGameState)
         {
-            //setup next letter
-            letterIndex += 1;
-            nextLetter(_letters[letterIndex]);
-            onEnterLetter(_letter); //new letter has been centered on the screen and is in play
-        }
-        else
-        {
-            //start ending?
-            Debug.Log("not sure what to do here");
+            case GameState.Loop:
+                //setup next letter
+                if (letterIndex < _lettersGO.Length)
+                {
+                    letterIndex += 1;
+                    nextLetter(_lettersGO[letterIndex]);
+                    onEnterLetter(_letter); //new letter has been centered on the screen and is in play
+                }
+                else
+                {
+                    CurrentGameState = GameState.End;
+                    Debug.Log("out of letters - this is the end");
+                }
+                break;
+
+            case GameState.Intro:
+                //onEnterLetter(_letter); //new letter has been centered on the screen and is in play
+                //CurrentGameState = GameState.Loop;
+
+                Debug.Log("this is the intro");
+                break;
+            case GameState.End:
+                Debug.Log("this is the end");
+                break;
+            default:
+                print("huh not sure what the gameState is");
+                break;
         }
     }
+
+    
 
     void onTimeUp()
     {
@@ -205,10 +243,7 @@ public class handwritingManager : MonoBehaviour
             case 0:
                 print("try next time!");
                 break;
-            case float i when i<20:
-                print(letter_score + ": concentrate!");
-                break;
-            case float i when i > 20 && i <= 40:
+            case float i when i > 0 && i <= 40:
                 print(letter_score + ": Better than nothing!");
                 break;
             case float i when i > 40 && i <= 60:
@@ -222,7 +257,7 @@ public class handwritingManager : MonoBehaviour
                 break;
             case 100:
                 print(letter_score + "100 percent!");
-                Actions.onPerfectScore();
+                Actions.onPerfectScore(letter_score);
                 break;
             default:
                 print("Incorrect intelligence level.");
@@ -240,9 +275,26 @@ public class handwritingManager : MonoBehaviour
         yield return new WaitForSeconds(zoomDuration);
         cutscenehandler.cutsceneElements.Add(cameraZoom);
         cutscenehandler.PlayNextElement();
-        //resetScore();
 
     }
+
+    IEnumerator introCutscene(float d)
+    {
+        cutscenehandler.cutsceneElements.Add(cameraZoom);
+        //cutscenehandler.PlayNextElement();
+        cutscenehandler.PlayNextElement();
+        //zoom to next letter
+        yield return new WaitForSeconds(d);
+    
+        //then go into main loop
+        CurrentGameState = GameState.Loop;
+        Debug.Log("----->loop");
+        //Debug.Log("Letters array length   "+_letters.Length + "Last letter: " + _letters[25].name);
+        letterIndex = 0; //start with "A"
+        _letter = _lettersGO[letterIndex].GetComponent<letter>(); //create reference to letter class
+        onEnterLetter(_letter);
+    }
+
 
     private void onDestroy()
     {

@@ -14,6 +14,6 @@ public static class Actions
     public static Action onCutsceneFinished;
 
     public static Action<float> onShowLetterScore ;
-    public static Action onPerfectScore;
+    public static Action<float> onPerfectScore;
 
 }

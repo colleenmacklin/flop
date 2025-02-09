@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        resetTimer();
+        //resetTimer();
         //TimerOn = true; //to be called from Handwriting Manager
     }
 

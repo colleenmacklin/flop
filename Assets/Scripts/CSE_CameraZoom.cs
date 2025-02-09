@@ -9,7 +9,7 @@ public class CSE_CameraZoom : CutsceneElementBase
     [SerializeField] public Transform target;
 
     [SerializeField] private Vector3 offset;
-    private Camera cam;
+    [SerializeField] public Camera cam;
 
 
     //private CinemachineCamera cm_cam; //for cinemachine cameras

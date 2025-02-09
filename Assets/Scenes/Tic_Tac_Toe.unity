@@ -420,7 +420,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.9811321, g: 0.6803133, b: 0.79425496, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -489,6 +489,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 30507905818221847, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025473094449780086, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072764422263363966, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5797975189522118801, guid: c2916871c136f444bab4b4158d31e413, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -601,7 +613,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8775d542a7d164e79803951693396c0c, type: 2}
+  - {fileID: 2100000, guid: 4989ca81ba6be4721af6dde68dfd556e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -679,13 +691,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8057603497870658701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a8dd4a3596f540a984f2c9223094fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   paper: {fileID: 2100000, guid: 6011618060f814fdcbe6fd3411c4d01e, type: 2}
-  letter: {fileID: 0}
+  letters: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
