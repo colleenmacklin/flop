@@ -18,20 +18,24 @@ public class handwritingManager : MonoBehaviour
     // Start is called before the first frame update
     public static GameState CurrentGameState { get; private set; }
 
+    private pad paper;
+    private Timer timer;
     [Header("References")]
-    public pad paper;
-    public Timer timer;
     [SerializeField] private letter _letter;
     [SerializeField] private GameObject [] _lettersGO;
     [SerializeField] private CutSceneHandler cutscenehandler;
     [SerializeField] private CSE_CameraZoom cameraZoom;
+    public GameObject scorebarGO;
+    public GameObject timerGO;
     public GameObject pen;
     public Draw penDraw;
+    public Camera maincamera;
 
-    [Header("values")]
+
+    [Header("Values")]
     public float ZoomDuration = 2f;
     public float ScoreDuration = 2f;
-    [SerializeField] private int letterIndex;
+    private int letterIndex;
     [SerializeField] private GameObject interstitial_transform;
 
     //public bool timeUp = false;
@@ -40,15 +44,12 @@ public class handwritingManager : MonoBehaviour
     [SerializeField] private float letter_score;
     [SerializeField] private float OverallScore; //26 letters, 0 to 2,600
     public TextMeshProUGUI score;
-    public int num_hit = 0;
+    private int num_hit = 0;
     [SerializeField] public MMProgressBar scoreBar;
     [Range(0f, 100f)] public float value;
 
-    public Camera maincamera;
 
     //public MMF_Player feedbacksPLayer;
-
-    //public bool IsInsideLetter;
 
     private void OnEnable()
     {
@@ -67,7 +68,6 @@ public class handwritingManager : MonoBehaviour
     private void Awake()
     {
         CurrentGameState = GameState.Intro;
-
     }
 
     private void Start()
@@ -79,11 +79,13 @@ public class handwritingManager : MonoBehaviour
     {
         Debug.Log("----->intro");
         //do intro stuff
-
         pen.SetActive(false); //hide & deactivate pen
+        //hide scorebar and timer
+        timerGO.SetActive(false);
+        scorebarGO.SetActive(false);
     }
 
-    public void StartGameLoop()
+    public void StartGameLoop() //called by button
     {
         //wait for a moment before starting the main loop
         cameraZoom.delay = true;
@@ -91,8 +93,6 @@ public class handwritingManager : MonoBehaviour
 
         //Setup the next letter in the sequence
         cameraZoom.target = _letter.currentLetter.transform;
-        //start the gameloop
-        //CurrentGameState = GameState.Loop;
         StartCoroutine(introCutscene(2f));
     }
 
@@ -156,7 +156,7 @@ public class handwritingManager : MonoBehaviour
         else
         {
             Debug.Log("last letter");
-            playEnding();
+            playEnding(); //--------------------------------------------check if this gets called in cutscenefinished
         }
 
         if (!pen.activeSelf)
@@ -170,27 +170,29 @@ public class handwritingManager : MonoBehaviour
     void cutSceneFinished()
     {
         //received message from CSE CameraZoom cutSceneFinished....
+
         switch (CurrentGameState)
         {
+
             case GameState.Loop:
+                Debug.Log("cutscene over, gamestate is loop");
                 //setup next letter
                 if (letterIndex < _lettersGO.Length)
                 {
                     letterIndex += 1;
                     nextLetter(_lettersGO[letterIndex]);
                     onEnterLetter(_letter); //new letter has been centered on the screen and is in play
-                }
-                else
-                {
+                 }
+                    else
+                 {
                     CurrentGameState = GameState.End;
                     Debug.Log("out of letters - this is the end");
+                    //activate ending method
+                    playEnding();
                 }
                 break;
 
             case GameState.Intro:
-                //onEnterLetter(_letter); //new letter has been centered on the screen and is in play
-                //CurrentGameState = GameState.Loop;
-
                 Debug.Log("this is the intro");
                 break;
             case GameState.End:
@@ -211,7 +213,6 @@ public class handwritingManager : MonoBehaviour
         foreach (GameObject sc in _letter.score_colliders) //turn off colliders in letter
         {
             sc.GetComponent<score_collision>().collisionEnabled = false;
-            //sc.SetActive(false);
         }
 
         giveLetterScoreFeedback(letter_score);
@@ -232,12 +233,14 @@ public class handwritingManager : MonoBehaviour
         num_hit++;//add to the number of spot hit on the letter to send to scoring (out of 20)
         //update Scorebar
         letter_score = (num_hit * 100f / _letter.score_colliders.Count);
+        letter_score = letter_score.RoundDown(0);//no decimals
         scoreBar.UpdateBar(letter_score, 0f, 100f);
     }
 
 
     void giveLetterScoreFeedback(float _score)
     {
+
         switch (letter_score)
         {
             case 0:
@@ -265,7 +268,6 @@ public class handwritingManager : MonoBehaviour
         }
         Actions.onShowLetterScore(letter_score);
         StartCoroutine(ZoomToNextLetter(ZoomDuration));
-
     }
 
 
@@ -281,18 +283,19 @@ public class handwritingManager : MonoBehaviour
     IEnumerator introCutscene(float d)
     {
         cutscenehandler.cutsceneElements.Add(cameraZoom);
-        //cutscenehandler.PlayNextElement();
         cutscenehandler.PlayNextElement();
+
         //zoom to next letter
         yield return new WaitForSeconds(d);
-    
+
         //then go into main loop
         CurrentGameState = GameState.Loop;
         Debug.Log("----->loop");
-        //Debug.Log("Letters array length   "+_letters.Length + "Last letter: " + _letters[25].name);
-        letterIndex = 0; //start with "A"
-        _letter = _lettersGO[letterIndex].GetComponent<letter>(); //create reference to letter class
-        onEnterLetter(_letter);
+        //the "CutsceneFinished" method will trigger, and increment to the next index in our lettters. We want it to stay at 0, hence the "-1"
+        letterIndex = -1;
+        timerGO.SetActive(true);
+        scorebarGO.SetActive(true);
+
     }
 
 
