@@ -282,8 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xSize: 1.3
-  randomnessFactor: 0.1
-  wiggleFactor: 0.02
+  randomnessFactor: 1
+  wiggleFactor: 0.05
   adversaryPen: {fileID: 826745437}
   playerPen: {fileID: 1579892009}
   restPositions:
