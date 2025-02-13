@@ -177,7 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lettercollider: {fileID: 6191895026294291321}
-  isPenOver: 0
   score_colliders:
   - {fileID: 8294374724331916020}
   - {fileID: 5530393913555818161}
@@ -203,6 +202,9 @@ MonoBehaviour:
   nextLetter: {fileID: 0}
   perfectScorePlayer: {fileID: 4204370923353471171}
   scorePlayer: {fileID: 4948168685143737564}
+  score_container: {fileID: 815407095156145472}
+  isPenOver: 0
+  turnOnColliderMesh: 0
 --- !u!65 &6191895026294291321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.52, y: 0.55, z: 1}
+  m_Size: {x: 0.6, y: 0.55, z: 1}
   m_Center: {x: 0, y: 0.02262023, z: 0}
 --- !u!1 &4204370923353471171
 GameObject:
@@ -355,9 +357,9 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 1343165789339385859
+  - rid: 1343165853400039426
   - rid: 1343165789339385861
-  - rid: 1343165789339385862
+  - rid: 1343165853400039429
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -365,7 +367,93 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1343165789339385859
+    - rid: 1343165789339385861
+      type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 625017481
+        Label: Particles Play
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 0
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 9043938095564315220}
+        DebugActive: 0
+        Mode: 0
+        EmitCount: 100
+        BoundParticleSystem: {fileID: 8607484020111709707}
+        RandomParticleSystems: []
+        MoveToPosition: 0
+        ActivateOnPlay: 0
+        StopSystemOnInit: 1
+        StopSystemOnReset: 1
+        StopSystemOnStopFeedback: 1
+        DeclaredDuration: 0
+        ForceSimulationSpeed: 0
+        ForcedSimulationSpeed: {x: 0.1, y: 1}
+    - rid: 1343165853400039426
       type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -479,93 +567,7 @@ MonoBehaviour:
         PositionMode: 1
         TargetTransform: {fileID: 0}
         Direction: {x: 0, y: 0, z: 0}
-    - rid: 1343165789339385861
-      type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
-      data:
-        Active: 1
-        UniqueID: 625017481
-        Label: Particles Play
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 0
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 9043938095564315220}
-        DebugActive: 0
-        Mode: 0
-        EmitCount: 100
-        BoundParticleSystem: {fileID: 8607484020111709707}
-        RandomParticleSystems: []
-        MoveToPosition: 0
-        ActivateOnPlay: 0
-        StopSystemOnInit: 1
-        StopSystemOnReset: 1
-        StopSystemOnStopFeedback: 1
-        DeclaredDuration: 0
-        ForceSimulationSpeed: 0
-        ForcedSimulationSpeed: {x: 0.1, y: 1}
-    - rid: 1343165789339385862
+    - rid: 1343165853400039429
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -648,7 +650,7 @@ MonoBehaviour:
         PlayMethod: 0
         PoolSize: 10
         UseLegacyEventsMode: 0
-        StopSoundOnFeedbackStop: 1
+        StopSoundOnFeedbackStop: 0
         MinVolume: 0.44
         MaxVolume: 0.91
         MinPitch: 1
@@ -821,8 +823,8 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 1343165789339385859
-  - rid: 1343165789339385864
+  - rid: 1343165853400039424
+  - rid: 1343165853400039428
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -830,7 +832,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1343165789339385859
+    - rid: 1343165853400039424
       type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -939,12 +941,12 @@ MonoBehaviour:
           m_ColorSpace: -1
           m_NumColorKeys: 2
           m_NumAlphaKeys: 2
-        ForceLifetime: 0
-        Lifetime: 0.5
+        ForceLifetime: 1
+        Lifetime: 1
         PositionMode: 1
         TargetTransform: {fileID: 0}
         Direction: {x: 0, y: 0, z: 0}
-    - rid: 1343165789339385864
+    - rid: 1343165853400039428
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -961,7 +963,7 @@ MonoBehaviour:
           ContributeToTotalDuration: 1
           InitialDelay: 0
           CooldownDuration: 0
-          InterruptsOnStop: 1
+          InterruptsOnStop: 0
           NumberOfRepeats: 0
           RepeatForever: 0
           DelayBetweenRepeats: 1
@@ -982,7 +984,7 @@ MonoBehaviour:
         AutomatedTargetAcquisition:
           Mode: 0
           ChildIndex: 0
-        RandomizeOutput: 0
+        RandomizeOutput: 1
         RandomMultiplier: {x: 0.8, y: 1}
         RandomizeDuration: 0
         RandomDurationMultiplier: {x: 0.5, y: 2}
@@ -1018,8 +1020,11 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 3950690730829296024}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 5f2409b5f76c9d44c82640847a8b75b4, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 0}
+        RandomSfx:
+        - {fileID: 8300000, guid: 07f6294d499664bca8f630b2a26887e4, type: 3}
+        - {fileID: 8300000, guid: 96a0f20ba7898478bb2375385e9d3572, type: 3}
+        - {fileID: 8300000, guid: b070b778a96a0496aa97750216440dc8, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
@@ -1027,7 +1032,7 @@ MonoBehaviour:
         PlayMethod: 0
         PoolSize: 10
         UseLegacyEventsMode: 0
-        StopSoundOnFeedbackStop: 1
+        StopSoundOnFeedbackStop: 0
         MinVolume: 0.27
         MaxVolume: 0.53
         MinPitch: 1
@@ -6106,17 +6111,17 @@ MonoBehaviour:
   AnimateColor: 1
   AnimateColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 1, g: 1, b: 1, a: 0}
+    key1: {r: 1, g: 0.6, b: 0.6, a: 1}
+    key2: {r: 1, g: 0, b: 0.37877178, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 65535
-    ctime2: 0
+    ctime1: 15227
+    ctime2: 65535
     ctime3: 0
     ctime4: 0
     ctime5: 0
@@ -6132,7 +6137,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 2
+    m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   AnimateOpacity: 1
   RemapOpacityZero: {x: 0, y: 0}
@@ -7617,12 +7622,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7284800961402381166, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
   m_PrefabInstance: {fileID: 7447270682279231037}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 815407095156145472}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2192c456bb84f804aa4b04b6c64a7acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &815407095156145472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7785295853672088445, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
+  m_PrefabInstance: {fileID: 7447270682279231037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &815407095156145503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7785295853672088418, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}

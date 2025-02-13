@@ -336,9 +336,9 @@ MonoBehaviour:
         AutomatedTargetAcquisition:
           Mode: 0
           ChildIndex: 0
-        RandomizeOutput: 0
+        RandomizeOutput: 1
         RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
+        RandomizeDuration: 1
         RandomDurationMultiplier: {x: 0.5, y: 2}
         UseRange: 0
         RangeDistance: 5
@@ -372,7 +372,7 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 4278197724254001441}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 7336cd5e6e4f74693ac6c4b607b671ef, type: 3}
+        Sfx: {fileID: 8300000, guid: 6e6cd1c1d73c045d4905093d30985504, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
@@ -382,10 +382,10 @@ MonoBehaviour:
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 1
-        MinVolume: 1
-        MaxVolume: 1
+        MinVolume: 0.29
+        MaxVolume: 0.68
         MinPitch: 1
-        MaxPitch: 1
+        MaxPitch: 3
         SfxAudioMixerGroup: {fileID: 0}
         Priority: 128
         PanStereo: 0

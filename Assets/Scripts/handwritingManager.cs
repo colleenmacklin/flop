@@ -260,13 +260,14 @@ public class handwritingManager : MonoBehaviour
                 break;
             case 100:
                 print(letter_score + "100 percent!");
-                Actions.onPerfectScore(letter_score);
+                Actions.onPerfectScore(letter_score, _letter);
+
                 break;
             default:
                 print("Incorrect intelligence level.");
                 break;
         }
-        Actions.onShowLetterScore(letter_score);
+        Actions.onShowLetterScore(letter_score, _letter);
         StartCoroutine(ZoomToNextLetter(ZoomDuration));
     }
 

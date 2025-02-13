@@ -18,6 +18,7 @@ public class letter : MonoBehaviour
     public GameObject nextLetter;
     public GameObject perfectScorePlayer;
     public GameObject scorePlayer;
+    public GameObject score_container;
 
     private MMF_Player _scorePlayer;
     private MMF_Player _perfectScorePlayer;
@@ -64,30 +65,38 @@ public class letter : MonoBehaviour
         // grab MMF player component
         _scorePlayer = scorePlayer.GetComponent<MMF_Player>();
         _perfectScorePlayer = perfectScorePlayer.GetComponent<MMF_Player>();
+        score_container.SetActive(false);
+
     }
 
-    private void TriggerScoreFeedback(float s)
+    private void TriggerScoreFeedback(float s, letter l)
     {
         //trigger scoring feedback
-        string myscore = s.ToString();
-        MMF_FloatingText floatingText = _scorePlayer.GetFeedbackOfType<MMF_FloatingText>();
-        floatingText.Value = myscore;
-        _scorePlayer.DurationMultiplier = 5.0f; //not sure if this is actually doing anything!
-        //_myPlayer.GetFeedbackOfType(MMF_Particles)
-        _scorePlayer?.PlayFeedbacks(this.transform.position);
+        //score_container.SetActive(true);
+        if (l == this)
+        {
+            string myscore = s.ToString() + "%";
+            MMF_FloatingText floatingText = _scorePlayer.GetFeedbackOfType<MMF_FloatingText>();
+            floatingText.Value = myscore;
+            _scorePlayer.DurationMultiplier = 5.0f; //not sure if this is actually doing anything!
+            _scorePlayer?.PlayFeedbacks(this.gameObject.transform.position);
+
+        }
     }
 
-    private void TriggerPerfectFeedback(float s)
+    private void TriggerPerfectFeedback(float s, letter l)
     {
         //trigger 100% feedback
-        string myscore = s.ToString();
+        //score_container.SetActive(true);
 
+    if (l == this) {
+        
+        string myscore = s.ToString() + "%";
         MMF_FloatingText floatingText = _perfectScorePlayer.GetFeedbackOfType<MMF_FloatingText>();
         floatingText.Value = myscore;
         _perfectScorePlayer.DurationMultiplier = 5.0f; //not sure if this is actually doing anything!
-        //_myPlayer.GetFeedbackOfType(MMF_Particles)
-        _perfectScorePlayer?.PlayFeedbacks(this.transform.position);
-
+        _perfectScorePlayer?.PlayFeedbacks(this.gameObject.transform.position);
+       }
     }
 
 
@@ -95,6 +104,8 @@ public class letter : MonoBehaviour
     {
         if (c.gameObject.tag == "Player") { 
             isPenOver = true;
+            score_container.SetActive(true);
+
             //Actions.onPenOver(this.gameObject);
         }
     }
@@ -105,6 +116,8 @@ public class letter : MonoBehaviour
         {
           
             isPenOver = true;
+            score_container.SetActive(true);
+
         }
     }
 
@@ -113,7 +126,7 @@ public class letter : MonoBehaviour
     {
         if (c.gameObject.tag == "Player") { 
             isPenOver = false;
-
+            score_container.SetActive(false);
         }
     }
 
