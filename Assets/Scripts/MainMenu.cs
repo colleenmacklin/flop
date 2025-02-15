@@ -71,16 +71,18 @@ public class MainMenu : MonoBehaviour
         //yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
 
         //playFeedbacks
+        
         if (currentMenuItem.GetComponent<menu_item>())
         {
             menu_item me = currentMenuItem.GetComponent<menu_item>();
             PlaySceneChangeFeedback?.Invoke(me);
         }
+        
         //Delay for a minute
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
 
-        //SceneManager.LoadScene("Handwriting_Test");
+        SceneManager.LoadScene("Handwriting_Test");
     }
 
 

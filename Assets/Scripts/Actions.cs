@@ -16,5 +16,5 @@ public static class Actions
     public static Action<float, letter> onShowLetterScore ;
     public static Action<float, letter> onPerfectScore;
 
-
+    public static Action clearScreen;
 }

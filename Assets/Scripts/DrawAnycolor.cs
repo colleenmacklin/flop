@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Draw : MonoBehaviour
+public class DrawAnyColor : MonoBehaviour
 {
     
     public Camera m_camera;
     public GameObject brush;
     public GameObject pen_tip;
-    [SerializeField] private List<GameObject> brushMarks;
 
     public bool forceDraw = false;
 
@@ -22,17 +21,7 @@ public class Draw : MonoBehaviour
     public bool isActive;
     public bool isWriting = false;
 
-    private void OnEnable()
-    {
-        Actions.clearScreen += DestroyBrushmarks;
-
-    }
-
-    private void OnDisable()
-    {
-        Actions.clearScreen -= DestroyBrushmarks;
-
-    }
+    //public static event Action <GameObject> onDrawing;
 
 
     private void Update()
@@ -66,20 +55,12 @@ public class Draw : MonoBehaviour
 
         penPos = pen_tip.transform.position;
         GameObject brushInstance = Instantiate(brush);
-        brushMarks.Add(brushInstance);
+
         brushInstance.transform.position = penPos;
 
         //Debug.Log("penPos: " + penPos + ", " + "brushPos: " + brushInstance.transform.position);
         currentLineRenderer = brushInstance.GetComponent<LineRenderer>();
 
-    }
-
-    void DestroyBrushmarks()
-    {
-        foreach (GameObject b in brushMarks)
-        {
-            Destroy(b);
-        }
     }
 
     void AddAPoint(Vector3 pointPos)

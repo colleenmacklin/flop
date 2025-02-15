@@ -2234,6 +2234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsMenu: {fileID: 0}
+  SceneChangeTime: 0
+  quitOptionsTime: 1
+  currentMenuItem: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!1 &1636967611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3096,6 +3100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsMenu: {fileID: 0}
+  SceneChangeTime: 0
+  quitOptionsTime: 1
+  currentMenuItem: {fileID: 0}
+  transition: {fileID: 0}
 --- !u!4 &2057180948
 Transform:
   m_ObjectHideFlags: 0
