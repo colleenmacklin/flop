@@ -13,8 +13,7 @@ public class MainMenu : MonoBehaviour
     public float quitOptionsTime = 1f;
     [SerializeField] private GameObject currentMenuItem;
     public static event Action<menu_item> PlaySceneChangeFeedback;
-    public Animator transition;
-
+    public SceneCrossFade sceneloader;
 
     private void OnEnable()
     {
@@ -68,8 +67,6 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator PlayHWGame()
     {
-        //yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
-
         //playFeedbacks
         
         if (currentMenuItem.GetComponent<menu_item>())
@@ -77,27 +74,37 @@ public class MainMenu : MonoBehaviour
             menu_item me = currentMenuItem.GetComponent<menu_item>();
             PlaySceneChangeFeedback?.Invoke(me);
         }
-        
-        //Delay for a minute
-        transition.SetTrigger("Start");
-        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
 
-        SceneManager.LoadScene("Handwriting_Test");
+        //Delay for a minute
+        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
+        sceneloader.fadeToLevel("Handwriting_Test");
     }
 
 
     IEnumerator PlayTTTGame()
     {
-        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
+        if (currentMenuItem.GetComponent<menu_item>())
+        {
+            menu_item me = currentMenuItem.GetComponent<menu_item>();
+            PlaySceneChangeFeedback?.Invoke(me);
+        }
 
-        SceneManager.LoadScene("Tic_Tac_Toe");
+        //Delay for a minute
+        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
+        sceneloader.fadeToLevel("Tic_Tac_Toe");
     }
 
     IEnumerator PlayFDGame()
     {
-        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
+        if (currentMenuItem.GetComponent<menu_item>())
+        {
+            menu_item me = currentMenuItem.GetComponent<menu_item>();
+            PlaySceneChangeFeedback?.Invoke(me);
+        }
 
-        SceneManager.LoadScene("Art_Studio");
+        //Delay for a minute
+        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
+        sceneloader.fadeToLevel("Art_Studio");
     }
 
     IEnumerator Options()

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1bf6fdeba978244769d94bb32306547e, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -6633,7 +6633,7 @@ PrefabInstance:
     - target: {fileID: 2049270206253580531, guid: 5298623dcf8d7489ba9d7061998d8366, type: 3}
       propertyPath: transition
       value: 
-      objectReference: {fileID: 1492857519}
+      objectReference: {fileID: 0}
     - target: {fileID: 6260026160270473842, guid: 5298623dcf8d7489ba9d7061998d8366, type: 3}
       propertyPath: m_Name
       value: SceneLoader
@@ -6687,11 +6687,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5298623dcf8d7489ba9d7061998d8366, type: 3}
---- !u!95 &1492857519 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3547272345156068119, guid: 5298623dcf8d7489ba9d7061998d8366, type: 3}
-  m_PrefabInstance: {fileID: 1492857518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1523183246 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2995386774744159650, guid: eca71631db22f4f9fbff06a52a16e475, type: 3}
@@ -23881,6 +23876,7 @@ MeshRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1492857518}
   - {fileID: 2136023702}
   - {fileID: 1058957966}
   - {fileID: 964132095}
@@ -23892,4 +23888,3 @@ SceneRoots:
   - {fileID: 94731856}
   - {fileID: 2020903646}
   - {fileID: 1810927396}
-  - {fileID: 1492857518}
