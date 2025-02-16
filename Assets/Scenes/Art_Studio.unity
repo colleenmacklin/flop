@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pencolor: {fileID: 8706733474981783982}
-  menu: {fileID: 1720634386}
+  menu: {fileID: 2032005765}
 --- !u!1 &1046492717 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7669003227089579590, guid: 8ff3b63ece4964ec9849f3cdf74d8776, type: 3}
@@ -1517,7 +1517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d15ef61ea7ea454bac787e9658775a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 0}
+  move: {fileID: 1720634388}
+  menuOpen: 0
 --- !u!1001 &2122469067
 PrefabInstance:
   m_ObjectHideFlags: 0

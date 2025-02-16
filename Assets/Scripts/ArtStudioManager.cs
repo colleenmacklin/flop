@@ -7,13 +7,8 @@ public class ArtStudioManager : MonoBehaviour
 {
 
     public PenColor pencolor;
-    public GameObject menu;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    //public GameObject menu;
+    public TabMenu menu;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +16,11 @@ public class ArtStudioManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("menu");
+            if(menu.menuOpen == true)
+            {
+                menu.moveOut();
+            }
+            else { menu.moveIn(); }
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
