@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FeelLettersDemoBoilingLine
-  m_Shader: {fileID: 4800000, guid: f54b8ae4d72e16445b407e4ad5ad4264, type: 3}
+  m_Name: FeelLettersDemoBoilingLine2
+  m_Shader: {fileID: 4800000, guid: 82cc08b09250b4a7380c733382053f51, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -61,8 +61,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Noise:
         m_Texture: {fileID: 2800000, guid: 75b254a55f7e3f347ac8f2b5db9b11d9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 1, y: 1}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 5, y: 5}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -74,7 +74,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _Amount: 0.02
+    - _Amount: 0.001
     - _AmountVertex: 0
     - _BumpScale: 1
     - _COLOR_SHIFTING: 1
@@ -114,6 +114,6 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 1, g: 0.7666667, b: 0, a: 0}
     - _HSVShift: {r: 0, g: 0, b: 0, a: 0}
-    - _PanSpeed: {r: 2, g: 2, b: 1, a: 1}
+    - _PanSpeed: {r: 1, g: 1, b: 1, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

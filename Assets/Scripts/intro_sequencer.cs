@@ -41,7 +41,7 @@ public class intro_sequencer : MonoBehaviour
 
     public GameObject pad;
     //public GameObject hand;
-    public SceneCrossFade scenecrossfader;
+    public IntroSceneCrossFade scenecrossfader;
 
     private void OnEnable()
     {
