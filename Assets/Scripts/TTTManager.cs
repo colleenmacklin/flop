@@ -6,17 +6,21 @@ public class TTTManager : MonoBehaviour
     public GameObject redPen;
     public GameObject bluePen;
     public Vector3[] boardPositions = new Vector3[9];
+
+    public mouse_control mouseControl;
     
     private char[,] board = new char[3, 3]; // Game state
-    private GameObject redPenInstance;
     public AdversaryController adversaryController;
     private bool isPlayerTurn = false;
     private int turnCount = 0;
 
     private bool playerIsDrawing = false;
+    private bool shouldRecoverBluePenRotation = false;
 
     void Start()
     {
+        // AddCollidersToBones(redPen);
+        // AddCollidersToBones(bluePen);
         StartCoroutine(InitializeGame());
     }
 
@@ -30,6 +34,7 @@ public class TTTManager : MonoBehaviour
         // Computer starts first and places 'X' in the center
         board[1, 1] = 'X';
         yield return StartCoroutine(adversaryController.DrawXAtPosition(boardPositions[4]));
+        
         isPlayerTurn = true;
     }
 
@@ -51,7 +56,7 @@ public class TTTManager : MonoBehaviour
                 turnCount++;
                 if (turnCount >= 4)
                 {
-                    StartCoroutine(adversaryController.ChasePlayer());
+                    StartCoroutine(FightScene());
                 }
                 else
                 {
@@ -59,6 +64,55 @@ public class TTTManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator RecoverPenRotationOverTime(GameObject pen, Quaternion targetRotation)
+    {
+        while (adversaryController.chargeCount < adversaryController.attackNumCharges)
+        {
+            pen.transform.rotation = Quaternion.Slerp(pen.transform.rotation, targetRotation, 0.1f);
+            yield return null;
+        }
+    }
+
+    IEnumerator FightScene() {
+        yield return StartCoroutine(adversaryController.Scribble());
+        SetBluePenDrawActive(false);
+        AddCollidersToBones(redPen);
+        AddCollidersToBones(bluePen);
+        StartCoroutine(RecoverPenRotationOverTime(bluePen, Quaternion.identity));
+        yield return StartCoroutine(adversaryController.ChasePlayer());
+        mouseControl?.SetCursorVisible(true);
+        StartCoroutine(WrestlingScene());
+    }
+
+    IEnumerator WrestlingScene() {
+        bluePen.GetComponent<mouse_control>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(MoveBluePenToMiddleOfScreen());
+        StartCoroutine(adversaryController.WrestleWithPlayer());
+    }
+
+    IEnumerator MoveBluePenToMiddleOfScreen() {
+        Vector3 middle = new Vector3(0, 0, 0);
+        while (true) {
+            if (Vector3.Distance(bluePen.transform.position, middle) < 0.1f) {
+                // move towards red pen
+                while (Vector3.Distance(bluePen.transform.position, redPen.transform.position) > 0.1f) {
+                    bluePen.transform.position = Vector3.Lerp(bluePen.transform.position, redPen.transform.position, 0.1f);
+                    yield return null;
+                }
+            } else {
+                bluePen.transform.position = Vector3.Lerp(bluePen.transform.position, middle, 0.02f);
+            }
+            yield return null;
+        }
+    }
+
+    void SetBluePenDrawActive(bool active)
+    {
+        bluePen.GetComponent<Draw>().isActive = active;
+        bluePen.GetComponent<Draw>().forceDraw = active;
     }
 
     Vector3 GetNearestBoardPosition(Vector3 penPosition)
@@ -112,5 +166,19 @@ public class TTTManager : MonoBehaviour
                 return pos;
         }
         return Vector3.zero;
+    }
+
+    void AddCollidersToBones(GameObject pen)
+    {
+        foreach (Transform bone in pen.GetComponentsInChildren<Transform>())
+        {
+            if (bone != pen.transform) // Skip the root object
+            {
+                CapsuleCollider collider = bone.gameObject.AddComponent<CapsuleCollider>();
+                collider.direction = 1; // Z-axis for best alignment with bones
+                collider.radius = 0.0025f;
+                collider.height = 0.005f;
+            }
+        }
     }
 }
