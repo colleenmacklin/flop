@@ -16,6 +16,9 @@ public class mouse_control : MonoBehaviour
 
     Plane plane = new Plane(Vector3.back, 0);
 
+    public void SetCursorVisible(bool value) {
+        Cursor.visible = value;
+    }
 
     void Start()
     {

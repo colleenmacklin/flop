@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using BoingKit;
 
 public class Draw : MonoBehaviour
 {
@@ -18,13 +19,18 @@ public class Draw : MonoBehaviour
     public Vector3 lastPos;
     public Vector3 penPos;
 
+    public BoingBones boingBones;
+
     public bool isActive;
     public bool isWriting = false;
 
     //public static event Action <GameObject> onDrawing;
+    private void Start()
+    {
+        boingBones = GetComponent<BoingBones>();
+    }
 
-
-    private void Update()
+    private void LateUpdate()
     {
         if (isActive)
             Drawing();
@@ -40,7 +46,7 @@ public class Draw : MonoBehaviour
         }
 
         else if (Input.GetMouseButton(0) || forceDraw && isWriting)
-         {
+        {
             PointToPenPos();
         }
         else
@@ -75,8 +81,6 @@ public class Draw : MonoBehaviour
     void PointToPenPos()
     {
         penPos = pen_tip.transform.position;
-        //Debug.Log("pen tip position when drawing: " + penPos);
-
         if (lastPos != penPos)
         {
             AddAPoint(penPos);

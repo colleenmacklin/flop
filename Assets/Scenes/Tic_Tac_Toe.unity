@@ -149,15 +149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5811121232858364870, guid: be55afea25d92432f80206f53682b30f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5811121232858364870, guid: be55afea25d92432f80206f53682b30f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5811121232858364870, guid: be55afea25d92432f80206f53682b30f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5811121232858364870, guid: be55afea25d92432f80206f53682b30f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -194,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 6624495247675154812, guid: be55afea25d92432f80206f53682b30f, type: 3}
       propertyPath: m_Name
       value: Pen_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357297724383257248, guid: be55afea25d92432f80206f53682b30f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8090852629691047643, guid: be55afea25d92432f80206f53682b30f, type: 3}
       propertyPath: isActive
@@ -248,6 +252,7 @@ MonoBehaviour:
   - {x: -4.23, y: -3.16, z: 0}
   - {x: 0, y: -3.16, z: 0}
   - {x: 4.23, y: -3.16, z: 0}
+  mouseControl: {fileID: 0}
   adversaryController: {fileID: 826745445}
 --- !u!4 &457786470
 Transform:
@@ -281,15 +286,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d0bffaaa01e47ff8cd43bb57dc7d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xSize: 1.3
-  randomnessFactor: 0.1
-  wiggleFactor: 0.02
+  xSize: 2
+  randomnessFactor: 0
+  wiggleFactor: 0
   adversaryPen: {fileID: 826745437}
   playerPen: {fileID: 1579892009}
   restPositions:
   - {x: 6, y: 6, z: 0}
   - {x: -6, y: -6, z: 0}
   - {x: -6, y: 6, z: 0}
+  scribbleDuration: 3
+  scribbleStepSpeed: 0.5
+  scribbleRadius: 13
+  attackNumCharges: 6
+  attackRadius: 6
+  attackWithdrawSpeed: 0.15
+  attackChargeSpeed: 0.4
+  chargeCount: 0
 --- !u!1 &1365757773
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,9 +510,49 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1025473094449780086, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a877e66cdf86e99448bbffed84d3e051, type: 2}
+    - target: {fileID: 1161862222220578577, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161862222220578577, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161862222220578577, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3072764422263363966, guid: c2916871c136f444bab4b4158d31e413, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194492164896455074, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676840233358415993, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676840233358415993, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676840233358415993, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676840233358415993, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4374393378503536483, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5797975189522118801, guid: c2916871c136f444bab4b4158d31e413, type: 3}
       propertyPath: m_IsActive
@@ -509,9 +562,41 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5822233648885504084, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822233648885504084, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: DebugDrawBoneNames
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822233648885504084, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: DebugDrawBoingBones
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822233648885504084, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: DebugDrawFinalBones
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822233648885504084, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: DebugDrawChainBounds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5822233648885504084, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: DebugDrawTargetBones
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901766732792341070, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6251961963904224104, guid: c2916871c136f444bab4b4158d31e413, type: 3}
       propertyPath: m_Name
       value: Pen_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459830016965891174, guid: c2916871c136f444bab4b4158d31e413, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6739846732000235986, guid: c2916871c136f444bab4b4158d31e413, type: 3}
       propertyPath: m_LocalScale.x
