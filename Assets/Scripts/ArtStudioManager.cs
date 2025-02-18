@@ -9,6 +9,7 @@ public class ArtStudioManager : MonoBehaviour
     public PenColor pencolor;
     //public GameObject menu;
     public TabMenu menu;
+    public SceneCrossFade sceneloader;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +32,7 @@ public class ArtStudioManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Debug.Log("quit to main");
+            sceneloader.fadeToLevel("Main Menu");
         }
 
         if (Input.GetKeyDown(KeyCode.R))

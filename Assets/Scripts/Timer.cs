@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] public MMProgressBar timerBar;
 
     [SerializeField] public float timeLeft;
-    [SerializeField] float duration = 5f;
+    [SerializeField] public float duration = 5f;
 
     private void OnEnable()
     {
@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour
     {
         Actions.timerReset -= resetTimer;
     }
+
 
     void resetTimer()
     {
@@ -55,6 +56,11 @@ public class Timer : MonoBehaviour
                 Actions.onTimeUp();
             }
         }
+        else if (!TimerOn)
+        {
+           Debug.Log("Paused");
+            TimerOn = false;
+        }
     }
 
     void updateTimer(float currentTime)
@@ -65,7 +71,7 @@ public class Timer : MonoBehaviour
         //TimerText.text = string.Format("(1)", seconds);
         TimerText.text = (seconds).ToString();
 
-        timerBar.UpdateBar(currentTime, 0f, 5f);
+        timerBar.UpdateBar(currentTime, 0f, duration);
         timerBar.Minus20Percent();
     }
 }

@@ -35,7 +35,7 @@ public class Draw : MonoBehaviour
     }
 
 
-    private void Update()
+    private void LateUpdate()
     {
         if (isActive)
             Drawing();

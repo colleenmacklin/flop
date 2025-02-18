@@ -39,4 +39,11 @@ public class mouse_control : MonoBehaviour
 
         rigidbody.position = worldPosition+mouse_offset;
     }
+
+    //Vector3 mousePos = Input.mousePosition;
+
+    //Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+
+    //transform.position = worldPos;
+
 }

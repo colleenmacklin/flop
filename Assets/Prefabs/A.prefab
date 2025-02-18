@@ -204,6 +204,7 @@ MonoBehaviour:
   perfectScorePlayer: {fileID: 4204370923353471171}
   scorePlayer: {fileID: 4948168685143737564}
   score_container: {fileID: 815407095156145472}
+  topScore: 0
   isPenOver: 0
   turnOnColliderMesh: 0
 --- !u!65 &6191895026294291321
@@ -379,9 +380,9 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 1343165853400039426
-  - rid: 1343165789339385861
-  - rid: 1343165853400039429
+  - rid: 1343166012360228868
+  - rid: 1343166012360228869
+  - rid: 1343166012360228870
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -389,93 +390,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1343165789339385861
-      type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
-      data:
-        Active: 1
-        UniqueID: 625017481
-        Label: Particles Play
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 0
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 9043938095564315220}
-        DebugActive: 0
-        Mode: 0
-        EmitCount: 100
-        BoundParticleSystem: {fileID: 8607484020111709707}
-        RandomParticleSystems: []
-        MoveToPosition: 0
-        ActivateOnPlay: 0
-        StopSystemOnInit: 1
-        StopSystemOnReset: 1
-        StopSystemOnStopFeedback: 1
-        DeclaredDuration: 0
-        ForceSimulationSpeed: 0
-        ForcedSimulationSpeed: {x: 0.1, y: 1}
-    - rid: 1343165853400039426
+    - rid: 1343166012360228868
       type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -586,10 +501,96 @@ MonoBehaviour:
           m_NumAlphaKeys: 2
         ForceLifetime: 0
         Lifetime: 0.5
-        PositionMode: 1
-        TargetTransform: {fileID: 0}
+        PositionMode: 0
+        TargetTransform: {fileID: 4309134277883980476}
         Direction: {x: 0, y: 0, z: 0}
-    - rid: 1343165853400039429
+    - rid: 1343166012360228869
+      type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 625017481
+        Label: Particles Play
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 0
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 1
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 9043938095564315220}
+        DebugActive: 0
+        Mode: 0
+        EmitCount: 100
+        BoundParticleSystem: {fileID: 0}
+        RandomParticleSystems: []
+        MoveToPosition: 0
+        ActivateOnPlay: 0
+        StopSystemOnInit: 1
+        StopSystemOnReset: 1
+        StopSystemOnStopFeedback: 1
+        DeclaredDuration: 0
+        ForceSimulationSpeed: 0
+        ForcedSimulationSpeed: {x: 0.1, y: 1}
+    - rid: 1343166012360228870
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -673,8 +674,8 @@ MonoBehaviour:
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 0
-        MinVolume: 0.44
-        MaxVolume: 0.91
+        MinVolume: 1
+        MaxVolume: 1
         MinPitch: 1
         MaxPitch: 3
         SfxAudioMixerGroup: {fileID: 0}
@@ -846,7 +847,7 @@ MonoBehaviour:
   DebugActive: 0
   FeedbacksList:
   - rid: 1343165853400039424
-  - rid: 1343165853400039428
+  - rid: 1343166012360228867
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
@@ -968,7 +969,7 @@ MonoBehaviour:
         PositionMode: 1
         TargetTransform: {fileID: 0}
         Direction: {x: 0, y: 0, z: 0}
-    - rid: 1343165853400039428
+    - rid: 1343166012360228867
       type: {class: MMF_Sound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
         Active: 1
@@ -1055,8 +1056,8 @@ MonoBehaviour:
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 0
-        MinVolume: 0.27
-        MaxVolume: 0.53
+        MinVolume: 1
+        MaxVolume: 1
         MinPitch: 1
         MaxPitch: 3
         SfxAudioMixerGroup: {fileID: 0}
@@ -6233,6 +6234,14 @@ PrefabInstance:
       value: collider (17)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.165
       objectReference: {fileID: 0}
@@ -6306,6 +6315,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6383,6 +6400,14 @@ PrefabInstance:
       value: collider (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.164
       objectReference: {fileID: 0}
@@ -6456,6 +6481,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6533,6 +6566,14 @@ PrefabInstance:
       value: collider (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.197
       objectReference: {fileID: 0}
@@ -6608,6 +6649,14 @@ PrefabInstance:
       value: collider (15)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.034
       objectReference: {fileID: 0}
@@ -6681,6 +6730,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6811,11 +6868,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4938095755617958528, guid: 2e79f16be10fbd14f8d5ef191f8db4aa, type: 3}
   m_PrefabInstance: {fileID: 3743703989676731529}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &8607484020111709707 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4938095755617958530, guid: 2e79f16be10fbd14f8d5ef191f8db4aa, type: 3}
-  m_PrefabInstance: {fileID: 3743703989676731529}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3797741513594856742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6831,6 +6883,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6908,6 +6968,14 @@ PrefabInstance:
       value: collider (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.043
       objectReference: {fileID: 0}
@@ -6981,6 +7049,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7058,6 +7134,14 @@ PrefabInstance:
       value: collider (14)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.088
       objectReference: {fileID: 0}
@@ -7131,6 +7215,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7208,6 +7300,14 @@ PrefabInstance:
       value: collider (19)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.011
       objectReference: {fileID: 0}
@@ -7281,6 +7381,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7358,6 +7466,14 @@ PrefabInstance:
       value: collider (8)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06
       objectReference: {fileID: 0}
@@ -7433,6 +7549,14 @@ PrefabInstance:
       value: collider (12)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.022
       objectReference: {fileID: 0}
@@ -7506,6 +7630,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7677,6 +7809,14 @@ PrefabInstance:
       value: collider (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.214
       objectReference: {fileID: 0}
@@ -7752,6 +7892,14 @@ PrefabInstance:
       value: collider
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.003
       objectReference: {fileID: 0}
@@ -7825,6 +7973,14 @@ PrefabInstance:
     - target: {fileID: 1736556900657431577, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_Name
       value: collider (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6568568552455266273, guid: 9abc2a15c980945fbb7a79bdb4b291b8, type: 3}
       propertyPath: m_LocalPosition.x

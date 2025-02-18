@@ -19,6 +19,7 @@ public class letter : MonoBehaviour
     public GameObject perfectScorePlayer;
     public GameObject scorePlayer;
     public GameObject score_container;
+    public int topScore=0;
 
     private MMF_Player _scorePlayer;
     private MMF_Player _perfectScorePlayer;
@@ -45,6 +46,8 @@ public class letter : MonoBehaviour
 
     private void Start()
     {
+        topScore = score_colliders.Count;
+
         if (turnOnColliderMesh==false)
         {
             foreach (GameObject sc in score_colliders)

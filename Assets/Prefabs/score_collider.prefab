@@ -372,8 +372,10 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 4278197724254001441}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 6e6cd1c1d73c045d4905093d30985504, type: 3}
-        RandomSfx: []
+        Sfx: {fileID: 8300000, guid: 47c2081d7dd8647bdb0009792029a7bf, type: 3}
+        RandomSfx:
+        - {fileID: 8300000, guid: 515c7c3555a95431fa11da06a555c099, type: 3}
+        - {fileID: 8300000, guid: 2e3f604d699564bee9c93c231b8c1023, type: 3}
         TestPlayButton:
           ButtonText: Debug Play Sound
         TestStopButton:
@@ -443,7 +445,7 @@ MonoBehaviour:
           InterruptsOnStop: 1
           NumberOfRepeats: 0
           RepeatForever: 0
-          DelayBetweenRepeats: 1
+          DelayBetweenRepeats: 0
           PlayCount: 0
           LimitPlayCount: 0
           MaxPlayCount: 3
