@@ -990,7 +990,7 @@ MonoBehaviour:
   _starting_position: {x: 0, y: 0, z: 0}
   mouse_offset: {x: 0, y: 0, z: 0}
   moveSpeed: 0.1
-  rigidbody: {fileID: 8706733474981783981}
+  _rigidbody: {fileID: 8706733474981783981}
   pen: {fileID: 3228817493289144138}
 --- !u!4 &608604609004603792
 Transform:

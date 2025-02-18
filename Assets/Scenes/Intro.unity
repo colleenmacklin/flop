@@ -3340,7 +3340,7 @@ MonoBehaviour:
   _starting_position: {x: 0, y: 0, z: 0}
   mouse_offset: {x: 0, y: 0, z: 0}
   moveSpeed: 0.1
-  rigidbody: {fileID: 1487311838}
+  _rigidbody: {fileID: 1487311838}
   pen: {fileID: 1487311835}
 --- !u!114 &1487311842
 MonoBehaviour:
