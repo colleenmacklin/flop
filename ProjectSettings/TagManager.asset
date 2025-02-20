@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Letter
   - UI
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Pens
   - Water
   - UI
-  - 
+  - Music
   - 
   - 
   - 

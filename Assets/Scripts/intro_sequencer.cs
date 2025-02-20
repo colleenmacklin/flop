@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using MoreMountains.Tools;
 
 
 public class intro_sequencer : MonoBehaviour
@@ -39,9 +40,11 @@ public class intro_sequencer : MonoBehaviour
     public bool mouseIsMoving = false;
     private int i = 0;
 
-    public GameObject pad;
     //public GameObject hand;
-    public IntroSceneCrossFade scenecrossfader;
+    public SceneCrossFade scenecrossfader;
+    public AudioClip penCapSound;
+    public AudioClip music;
+    public GameAudio gameaudioplayer;
 
     private void OnEnable()
     {
@@ -108,7 +111,7 @@ public class intro_sequencer : MonoBehaviour
             // Mouse is moving
 
             i++;
-            Debug.Log("mouse is moving " + i);
+            //Debug.Log("mouse is moving " + i);
                 if (i > 20)
             {
                 mouseIsMoving = true;
@@ -118,11 +121,6 @@ public class intro_sequencer : MonoBehaviour
 
         }
 
-        //TODO: this needs to be fixed so the position isn't tied to the camera
-        //rigidbody.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
-
-        //this one works ok...
-        //rigidbody.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _starting_position.z));
     }
 
     private void activateMouse()
@@ -165,7 +163,7 @@ public class intro_sequencer : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         switchCamera(playerCamera);
         Actions.onMouseActivate();
-
+        gameaudioplayer.playSound(music);
         //show mouse cue
         yield return new WaitForSeconds(1f);
 
@@ -185,18 +183,14 @@ public class intro_sequencer : MonoBehaviour
 
             rcap.AddExplosionForce(100f, rbhand.position, 10.0f, 3.0F);
             rcap.AddTorque(new Vector3(10f, 10f, 10f));
+            gameaudioplayer.playSound(penCapSound);
         }
         yield return new WaitForSeconds(1.5f);
 
         scenecrossfader.fadeToLevel("Main Menu");
-        /*
-        yield return new WaitForSeconds(1.5f);
-        pad.SetActive(true);
-        hand.SetActive(false);
-        switchCamera(titleCamera);
-
-        */
     }
+
+
 
 }
 
