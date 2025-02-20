@@ -4,53 +4,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using MoreMountains.Feedbacks;
+using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
 
-    public GameObject OptionsMenu;
-    public float SceneChangeTime = 0f;
+    public GameObject AboutMenu;
+    public GameObject Quit;
+    public GameObject AboutBTN;
+    public GameObject sceneloader;
+    private bool subMenuOpen = false;
+
+    public float SceneChangeTime = 1f;
     public float quitOptionsTime = 1f;
-    [SerializeField] private GameObject currentMenuItem;
-    public static event Action<menu_item> PlaySceneChangeFeedback;
-    public SceneCrossFade sceneloader;
+
+    //deprecated
+
+    public GameObject currentMenuItem;
 
     private void OnEnable()
     {
-        menu_item.OnSelect += MenuSelected;
+        NonSceneChangeMenuItem.OnSelect += MenuSelected;
     }
 
     private void OnDisable()
     {
-        menu_item.OnSelect -= MenuSelected;
+        NonSceneChangeMenuItem.OnSelect -= MenuSelected;
     }
 
-    public void MenuSelected(GameObject m)
+    private void Start()
     {
-        currentMenuItem = m; //set the currentMenuItem so we can send the message
-        switch (m.name)
+        AboutMenu.SetActive(false);
+
+    }
+
+    public void MenuSelected(string mname)
+    {
+        switch (mname)
         {
-            case "HandwritingChallenge":
-                Debug.Log("HW");
-
-                StartCoroutine(PlayHWGame());
-                break;
-
-            case "TicTacToe":
-                Debug.Log("TTT");
-
-                StartCoroutine(PlayTTTGame());
-                break;
-
-            case "FreeDraw":
-                Debug.Log("Free draw");
-
-                StartCoroutine(PlayFDGame());
-                break;
-
-            case "Options":
-                Debug.Log("options");
-                StartCoroutine(Options());
+            
+            case "About":
+                Debug.Log("About");
+                StartCoroutine(About());
                 break;
 
             case "Quit":
@@ -65,61 +60,30 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    IEnumerator PlayHWGame()
+    private void Update()
     {
-        //playFeedbacks
-        
-        if (currentMenuItem.GetComponent<menu_item>())
+        if (Input.GetKeyDown(KeyCode.Space) && subMenuOpen == true)
         {
-            menu_item me = currentMenuItem.GetComponent<menu_item>();
-            PlaySceneChangeFeedback?.Invoke(me);
+            Debug.Log("about");
+            AboutMenu.SetActive(false);
+            subMenuOpen = false;
         }
 
-        //Delay for a minute
-        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
-        sceneloader.fadeToLevel("Handwriting_Test");
     }
 
 
-    IEnumerator PlayTTTGame()
-    {
-        if (currentMenuItem.GetComponent<menu_item>())
-        {
-            menu_item me = currentMenuItem.GetComponent<menu_item>();
-            PlaySceneChangeFeedback?.Invoke(me);
-        }
 
-        //Delay for a minute
-        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
-        sceneloader.fadeToLevel("Tic_Tac_Toe");
-    }
-
-    IEnumerator PlayFDGame()
-    {
-        if (currentMenuItem.GetComponent<menu_item>())
-        {
-            menu_item me = currentMenuItem.GetComponent<menu_item>();
-            PlaySceneChangeFeedback?.Invoke(me);
-        }
-
-        //Delay for a minute
-        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
-        sceneloader.fadeToLevel("Art_Studio");
-    }
-
-    IEnumerator Options()
+    IEnumerator About()
     {
         yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
-
-        OptionsMenu.SetActive(true);
+        subMenuOpen = true;
+        AboutMenu.SetActive(true);
     }
 
     IEnumerator QuitGame()
     {
         yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
-
         Debug.Log("Quit");
-
         Application.Quit();
     }
 

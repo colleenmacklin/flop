@@ -11,7 +11,7 @@ public class mouse_control : MonoBehaviour
 
 
     public float moveSpeed = 0.1f;
-    public new Rigidbody _rigidbody;
+    public Rigidbody _rigidbody;
     public GameObject pen;
 
     Plane plane = new Plane(Vector3.back, 0);
@@ -37,7 +37,7 @@ public class mouse_control : MonoBehaviour
             worldPosition = ray.GetPoint(distance);
         }
 
-        _rigidbody.position = worldPosition+mouse_offset;
+        GetComponent<Rigidbody>().position = worldPosition+mouse_offset;
     }
 
     //Vector3 mousePos = Input.mousePosition;

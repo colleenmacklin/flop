@@ -48,11 +48,13 @@ public class Draw : MonoBehaviour
             CreateBrush();
             isWriting = true;
             //onDrawing?.Invoke(this.gameObject);
+            //add sound trigger
         }
 
         else if (Input.GetMouseButton(0) || forceDraw && isWriting)
          {
             PointToPenPos();
+            //add sound trigger
         }
         else
         {

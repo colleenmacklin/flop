@@ -34,6 +34,7 @@ public class handwritingManager : MonoBehaviour
     public Camera maincamera;
     public TabMenu menu;
     public SceneCrossFade sceneloader;
+    public GameObject sceneloaderGO;
     public GameObject FinalScoreManager;
 
 
@@ -73,12 +74,12 @@ public class handwritingManager : MonoBehaviour
         score_collision.OnScore -= tally;
     }
 
-    private void Awake()
-    {
-    }
 
     private void Start()
     {
+        //make sure sceneloader is on and receiving scene change messages
+        sceneloaderGO.SetActive(true);
+
         CurrentGameState = GameState.Intro;
         playIntro();
     }

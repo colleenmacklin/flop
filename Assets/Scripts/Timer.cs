@@ -58,7 +58,7 @@ public class Timer : MonoBehaviour
         }
         else if (!TimerOn)
         {
-           Debug.Log("Paused");
+           //Debug.Log("Paused");
             TimerOn = false;
         }
     }

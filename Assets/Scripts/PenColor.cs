@@ -10,6 +10,7 @@ public class PenColor : MonoBehaviour
 
     [SerializeField] private List <Material> penMaterials;
     [SerializeField] private List<GameObject> brushes;
+    [SerializeField] public string color = "Blue"; //default
 
 
     [SerializeField] private Draw draw;
@@ -28,6 +29,7 @@ public class PenColor : MonoBehaviour
 
     public void Red()
     {
+        color = "Red";
         draw.brush = brushes[0];
 
         if (stopper.GetComponent<Renderer>())
@@ -39,6 +41,8 @@ public class PenColor : MonoBehaviour
 
     public void Green()
     {
+        color = "Green";
+
         draw.brush = brushes[1];
         if (stopper.GetComponent<Renderer>())
         {
@@ -50,6 +54,8 @@ public class PenColor : MonoBehaviour
 
     public void Blue()
     {
+        color = "Blue";
+
         draw.brush = brushes[2];
         if (stopper.GetComponent<Renderer>())
         {
@@ -61,6 +67,8 @@ public class PenColor : MonoBehaviour
 
     public void Black()
     {
+        color = "Black";
+
         draw.brush = brushes[3];
         if (stopper.GetComponent<Renderer>())
         {
@@ -72,9 +80,4 @@ public class PenColor : MonoBehaviour
 
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

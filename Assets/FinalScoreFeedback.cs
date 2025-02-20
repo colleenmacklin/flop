@@ -11,7 +11,7 @@ public class FinalScoreFeedback : MonoBehaviour
     public GameObject heckyesticker;
     public GameObject goatsticker;
     public GameObject score_container;
-
+    
 
 
     private void OnEnable()
@@ -31,25 +31,27 @@ public class FinalScoreFeedback : MonoBehaviour
 
         switch (s)
         {
-            case float i when i >= 0 && i <= 50:
+            case float i when i >= 0 && i <= 30:
                 mistakessticker.SetActive(true);
 
                 break;
-            case float i when i > 50 && i <= 80:
+            case float i when i > 30 && i <= 70:
                 heckyesticker.SetActive(true);
                 break;
-            case float i when i > 80 && i <= 100:
+            case float i when i > 70 && i <= 100:
                 goatsticker.SetActive(true);
                 break;
             default:
-                print("Incorrect intelligence level.");
+                print("huh? score not found");
                 break;
         }
 
         string myscore = s.ToString() + "%";
-        MMF_FloatingText floatingText = _scorePlayer.GetFeedbackOfType<MMF_FloatingText>();
-        floatingText.Value = myscore;
-        _scorePlayer.DurationMultiplier = 5.0f; //not sure if this is actually doing anything!
+        score_container.GetComponent<TMPro.TextMeshProUGUI>().text = myscore;
+        //MMF_FloatingText floatingText = _scorePlayer.GetFeedbackOfType<MMF_FloatingText>();
+        //floatingText.Value = myscore;
+        //_scorePlayer.DurationMultiplier = 5.0f; //not sure if this is actually doing anything!
+
         _scorePlayer?.PlayFeedbacks(this.gameObject.transform.position);
     }
 

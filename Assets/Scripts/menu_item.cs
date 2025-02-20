@@ -5,60 +5,58 @@ using Unity.Burst.CompilerServices;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.SceneManagement;
+using MoreMountains.Tools;
 
 public class menu_item : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject pen;
     public Draw _draw;
-    public static event Action<GameObject> OnSelect;
     [SerializeField] private MMF_Player myPlayer;
+    public SpriteRenderer spriterenderer;
+    public string sceneName;
+    public SceneCrossFade sceneloader;
+    public GameObject sceneloaderGO;
+    //private Color feedbackColor = new Color(0f, 0f, 1f, 0.3f);
 
-    private void OnEnable()
+
+    private bool collisonOccured = false;
+
+    public float SceneChangeTime = 1f;
+
+    private void Start()
     {
-        MainMenu.PlaySceneChangeFeedback += changeSceneFeedBack;
+        //make sure sceneloader is on and receiving scene change messages
+        sceneloaderGO.SetActive(true);
     }
 
-    private void OnDisable()
-    {
-        MainMenu.PlaySceneChangeFeedback -= changeSceneFeedBack;
-    }
 
-
-    void OnTriggerEnter(Collider c)
+void OnTriggerStay(Collider c)
     {
 
-        if (c.tag == "Player")
-        {
-            if (_draw.isWriting)
-            //if (hit == false && c.isTrigger)
-            {
-                OnSelect?.Invoke(this.gameObject);
-                Debug.Log("Entered collision with " + c.gameObject.name);
-                //hit = true;
-                //targetPLayer.PlayFeedbacks(this.transform.position);
-                //collisionEnabled = false;
-                //my_collider.enabled = false;
-                //MMF_FloatingText floatingTextFeedback = targetPLayer.GetFeedbackOfType<MMF_FloatingText>();
-                //floatingTextFeedback.Value = scoreValue;
-                //float myIntensity = UnityEngine.Random.Range(0f, 100f);
-                //targetPLayer.PlayFeedbacks(this.transform.position);
+        if (collisonOccured)
+            return;
+            
+        if (c.tag == "Player" && _draw.isWriting)
+        {            
+            //OnSelect?.Invoke(this.gameObject);
+            //Debug.Log("Entered collision with " + c.gameObject.name);
 
-            }
+            //spriterenderer.color = feedbackColor; //change to be less solid
+            myPlayer.PlayFeedbacks(this.transform.position);
+            collisonOccured = true;
+            StartCoroutine(changeSceneFeedBack());
         }
-
-
     }
-    void changeSceneFeedBack(menu_item m)
+
+
+    IEnumerator changeSceneFeedBack()
     {
-        if (m == this)
-        {
-            myPlayer.PlayFeedbacks();
-        }
+        myPlayer.PlayFeedbacks(this.transform.position);
         Debug.Log("changing the scene"+this.name);
 
-        //SceneManager.LoadScene("Handwriting_Test");
-
+        yield return new WaitForSeconds(SceneChangeTime); // Small delay before starting
+        sceneloader.fadeToLevel(sceneName);
     }
 
 }

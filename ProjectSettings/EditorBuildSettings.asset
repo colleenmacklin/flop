@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Handwriting_Test.unity
     guid: 50af80584300945df88ec111883c5c66
   - enabled: 1
+    path: Assets/Scenes/Tic_Tac_Toe.unity
+    guid: ad1c4cdf5286447cf8933fc6797e8fbc
+  - enabled: 1
     path: Assets/Scenes/Art_Studio.unity
     guid: ef9ea1756c2774bccb5d7a181c986ef9
-  - enabled: 1
-    path: Assets/Scenes/Tic_Tac_Toe.unity
-    guid: 603feb6c39a734947b974e2c9642bd24
   m_configObjects: {}
