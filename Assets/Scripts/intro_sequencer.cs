@@ -43,7 +43,6 @@ public class intro_sequencer : MonoBehaviour
     //public GameObject hand;
     public SceneCrossFade scenecrossfader;
     public AudioClip penCapSound;
-    public AudioClip music;
     public GameAudio gameaudioplayer;
 
     private void OnEnable()
@@ -163,7 +162,7 @@ public class intro_sequencer : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         switchCamera(playerCamera);
         Actions.onMouseActivate();
-        gameaudioplayer.playSound(music);
+        //gameaudioplayer.playSound(music);
         //show mouse cue
         yield return new WaitForSeconds(1f);
 

@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class GameAudio : MonoBehaviour
 {
-   
+    public List<AudioClip> sounds;
+    public List<AudioClip> music;
+
+    private void Start()
+    {
+        
+    }
+
     public void playSound(AudioClip sound)
     {
         //basic event call
