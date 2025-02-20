@@ -10,7 +10,17 @@ public class TTTManager_Simple : MonoBehaviour
     //public GameObject menu;
     public TabMenu menu;
     public SceneCrossFade sceneloader;
+    public GameObject sceneloaderGO;
+
     public List<GameObject> rules;
+    public int currRuleNum;
+
+    private void Start()
+    {
+        currRuleNum = 0;
+        rules[currRuleNum].SetActive(true);
+        sceneloaderGO.SetActive(true);
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,7 +63,19 @@ public class TTTManager_Simple : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            rules[currRuleNum].SetActive(false);
             //new rules
+            currRuleNum += 1;
+            if (currRuleNum < rules.Count)
+            {
+                rules[currRuleNum].SetActive(true);
+            }
+            else
+            {
+                //go back to start of list
+                currRuleNum = 0;
+                rules[currRuleNum].SetActive(true);
+            }
 
         }
     }
