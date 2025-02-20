@@ -10,6 +10,13 @@ public class ArtStudioManager : MonoBehaviour
     //public GameObject menu;
     public TabMenu menu;
     public SceneCrossFade sceneloader;
+    public GameObject sceneloaderGO;
+
+    void Start()
+    {
+        sceneloaderGO.SetActive(true);
+
+    }
 
     // Update is called once per frame
     void Update()
