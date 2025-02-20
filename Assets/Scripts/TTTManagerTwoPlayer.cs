@@ -11,7 +11,7 @@ public class TTTManagerTwoPlayer : MonoBehaviour
     private GameObject redPenInstance;
     public AdversaryController adversaryController;
     private bool P1Turn = false;
-    private bool P2Turn = false; //addedCM
+//    private bool P2Turn = false; //addedCM
 
     private int turnCount = 0;
 

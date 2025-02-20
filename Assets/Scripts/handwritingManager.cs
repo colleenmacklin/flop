@@ -29,6 +29,8 @@ public class handwritingManager : MonoBehaviour
     public GameObject scorebarGO;
     public GameObject timerGO;
     public GameObject instructions;
+    public GameObject endingmessage;
+
     public GameObject pen;
     public Draw penDraw;
     public Camera maincamera;
@@ -36,6 +38,7 @@ public class handwritingManager : MonoBehaviour
     public SceneCrossFade sceneloader;
     public GameObject sceneloaderGO;
     public GameObject FinalScoreManager;
+    public GameObject tabMenuGO;
 
 
 
@@ -79,14 +82,14 @@ public class handwritingManager : MonoBehaviour
     {
         //make sure sceneloader is on and receiving scene change messages
         sceneloaderGO.SetActive(true);
-
-        CurrentGameState = GameState.Intro;
         playIntro();
     }
 
     void playIntro()
     {
         Debug.Log("----->intro");
+        CurrentGameState = GameState.Intro;
+
         //do intro stuff
         pen.SetActive(false); //hide & deactivate pen
         //hide final score
@@ -95,13 +98,15 @@ public class handwritingManager : MonoBehaviour
         timerGO.SetActive(false); //replace with animated fade?
         scorebarGO.SetActive(false);
         instructions.SetActive(true);
-
+        endingmessage.SetActive(false);
+        //RESET ALL Values
     }
 
     public void StartGameLoop() //called by button
     {
         //fadeout instructions
         instructions.SetActive(false);
+        endingmessage.SetActive(false);
 
         //wait for a moment before starting the main loop
         cameraZoom.delay = true;
@@ -130,6 +135,7 @@ public class handwritingManager : MonoBehaviour
             CurrentGameState = GameState.Loop;
             StartGameLoop();
         }
+
         if (CurrentGameState == GameState.Loop)
         {
             if (Input.GetKeyDown(KeyCode.M))
@@ -164,15 +170,15 @@ public class handwritingManager : MonoBehaviour
 
             }
 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Debug.Log("quit to main");
-                //call transition
-                sceneloader.fadeToLevel("Main Menu");
-
-            }
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("quit to main");
+            //call transition
+            sceneloader.fadeToLevel("Main Menu");
+
+        }
 
 
     }
@@ -356,6 +362,7 @@ public class handwritingManager : MonoBehaviour
     {
         timerGO.SetActive(false);
         scorebarGO.SetActive(false);
+        tabMenuGO.SetActive(false);
 
         //show the final score manager
         FinalScoreManager.SetActive(true);
@@ -368,7 +375,8 @@ public class handwritingManager : MonoBehaviour
         yield return new WaitForSeconds(d);
 
         //popup back to main menu (press space to return to main menu, press p to play again
-       
+        endingmessage.SetActive(true);
+        
 
     }
 
