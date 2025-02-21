@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using MoreMountains.Tools;
 
 public class SceneCrossFade : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class SceneCrossFade : MonoBehaviour
 
     public void onFadeComplete()
     {
+        //fade out sounds?
+        
         SceneManager.LoadScene(levelToLoad);
     }
 }

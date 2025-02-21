@@ -138,6 +138,7 @@ public class handwritingManager : MonoBehaviour
 
         if (CurrentGameState == GameState.Loop)
         {
+            /*
             if (Input.GetKeyDown(KeyCode.M))
             {
                 Debug.Log("menu");
@@ -152,6 +153,7 @@ public class handwritingManager : MonoBehaviour
                     menu.moveIn();
                 }
             }
+            */
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("make easier");

@@ -25,6 +25,7 @@ public class TTTManager_Simple : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("menu");
@@ -34,7 +35,7 @@ public class TTTManager_Simple : MonoBehaviour
             }
             else { menu.moveIn(); }
         }
-
+        */
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("switch color");

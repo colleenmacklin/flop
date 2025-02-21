@@ -21,6 +21,7 @@ public class ArtStudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.M))
         {
             Debug.Log("menu");
@@ -30,6 +31,7 @@ public class ArtStudioManager : MonoBehaviour
             }
             else { menu.moveIn(); }
         }
+        */
         if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("clear");
