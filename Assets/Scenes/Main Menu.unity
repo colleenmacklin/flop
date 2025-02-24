@@ -3287,7 +3287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848532].Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848527].Label
@@ -3851,7 +3851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848532].RandomUnique
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848532].SpatialBlend

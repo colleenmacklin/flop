@@ -13485,6 +13485,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
+      propertyPath: managedReferences[1343166057990848531].RandomUnique
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166079541444614].RangeDistance
       value: 5
       objectReference: {fileID: 0}
