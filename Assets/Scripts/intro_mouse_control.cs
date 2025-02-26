@@ -10,9 +10,10 @@ public class intro_mouse_control : MonoBehaviour
     public Vector3 mouse_offset;
 
     public float moveSpeed = 0.1f;
-    public Rigidbody rigidbody;
+    public Rigidbody _rigidbody;
     public GameObject pen;
     public Rigidbody hand;
+    public Rigidbody cap;
 
     Plane plane = new Plane(Vector3.back, 0);
     public float forceAmount;
@@ -50,8 +51,9 @@ public class intro_mouse_control : MonoBehaviour
             worldPosition = ray.GetPoint(distance);
         }
 
-        rigidbody.position = worldPosition + mouse_offset;
-        hand.position = worldPosition + mouse_offset;
+            _rigidbody.position = worldPosition + mouse_offset;
+            cap.position = worldPosition + mouse_offset;
+            hand.position = worldPosition + mouse_offset;
 
         }
         //TODO: this needs to be fixed so the position isn't tied to the camera

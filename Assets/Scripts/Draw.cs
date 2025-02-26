@@ -11,6 +11,7 @@ public class Draw : MonoBehaviour
     public Camera m_camera;
     public GameObject brush;
     public GameObject pen_tip;
+    [SerializeField] private List<GameObject> brushMarks;
 
     public bool forceDraw = false;
 
@@ -24,11 +25,23 @@ public class Draw : MonoBehaviour
     public bool isActive;
     public bool isWriting = false;
 
-    //public static event Action <GameObject> onDrawing;
     private void Start()
     {
         boingBones = GetComponent<BoingBones>();
     }
+
+    private void OnEnable()
+    {
+        Actions.clearScreen += DestroyBrushmarks;
+
+    }
+
+    private void OnDisable()
+    {
+        Actions.clearScreen -= DestroyBrushmarks;
+
+    }
+
 
     private void LateUpdate()
     {
@@ -43,11 +56,13 @@ public class Draw : MonoBehaviour
             CreateBrush();
             isWriting = true;
             //onDrawing?.Invoke(this.gameObject);
+            //add sound trigger
         }
 
         else if (Input.GetMouseButton(0) || forceDraw && isWriting)
         {
             PointToPenPos();
+            //add sound trigger
         }
         else
         {
@@ -61,12 +76,20 @@ public class Draw : MonoBehaviour
 
         penPos = pen_tip.transform.position;
         GameObject brushInstance = Instantiate(brush);
-
+        brushMarks.Add(brushInstance);
         brushInstance.transform.position = penPos;
 
         //Debug.Log("penPos: " + penPos + ", " + "brushPos: " + brushInstance.transform.position);
         currentLineRenderer = brushInstance.GetComponent<LineRenderer>();
 
+    }
+
+    void DestroyBrushmarks()
+    {
+        foreach (GameObject b in brushMarks)
+        {
+            Destroy(b);
+        }
     }
 
     void AddAPoint(Vector3 pointPos)
