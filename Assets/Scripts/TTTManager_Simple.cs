@@ -14,12 +14,33 @@ public class TTTManager_Simple : MonoBehaviour
 
     public List<GameObject> rules;
     public int currRuleNum;
+    public int coinFlipRuleNum;
+    public GameObject coin;
+    public bool twoPenControllerMode = false;
+
+    public TTTPenController pen1;
+    public TTTPenController pen2;
+    private TTTPenController activePen;
+    private TTTPenController inactivePen;
+    private CoinController coinController;
 
     private void Start()
     {
         currRuleNum = 0;
         rules[currRuleNum].SetActive(true);
         sceneloaderGO.SetActive(true);
+        if (coin != null)
+        {
+            coinController = coin.GetComponent<CoinController>();
+        }
+        if (twoPenControllerMode) {
+            pen1.gameObject.SetActive(true);
+            pen2.gameObject.SetActive(true);
+            activePen = pen1;
+            inactivePen = pen2;  
+            activePen.ActivatePen();
+            inactivePen.DeactivatePen();
+        }
     }
 
     // Update is called once per frame
@@ -39,14 +60,21 @@ public class TTTManager_Simple : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             Debug.Log("switch color");
-            if (pencolor.color == "Blue")
+            if (twoPenControllerMode)
             {
-                pencolor.Red();
-
+                SwitchPens();
             }
             else
             {
-                pencolor.Blue();
+                if (pencolor.color == "Blue")
+                {
+                    pencolor.Red();
+
+                }
+                else
+                {
+                    pencolor.Blue();
+                }
             }
         }
 
@@ -77,7 +105,28 @@ public class TTTManager_Simple : MonoBehaviour
                 currRuleNum = 0;
                 rules[currRuleNum].SetActive(true);
             }
-
+            if (currRuleNum == coinFlipRuleNum)
+            {
+                coin.SetActive(true);
+            } 
+            else {
+                coin.SetActive(false);
+            }
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (coinController != null && !coinController.isFlipping)
+            {
+                coinController.FlipCoin();
+            }
+        }
+    }
+
+    private void SwitchPens()
+    {
+        (activePen, inactivePen) = (inactivePen, activePen);
+        activePen.MoveToMouseAndActivate();
+        inactivePen.MoveToRestPositionAndDeactivate();
     }
 }

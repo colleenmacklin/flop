@@ -39,7 +39,6 @@ public class Draw : MonoBehaviour
     private void OnDisable()
     {
         Actions.clearScreen -= DestroyBrushmarks;
-
     }
 
 
@@ -86,6 +85,8 @@ public class Draw : MonoBehaviour
 
     void DestroyBrushmarks()
     {
+        if (brushMarks.Count == 0)
+            return;
         foreach (GameObject b in brushMarks)
         {
             Destroy(b);

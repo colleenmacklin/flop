@@ -11,7 +11,7 @@ public class PenColor : MonoBehaviour
     [SerializeField] private List <Material> penMaterials;
     [SerializeField] private List<GameObject> brushes;
     [SerializeField] public string color = "Blue"; //default
-
+    [SerializeField] public bool initFromStringColor = false;
 
     [SerializeField] private Draw draw;
 
@@ -22,9 +22,29 @@ public class PenColor : MonoBehaviour
             currentMaterial = myrenderer.materials[0];
             Debug.Log(currentMaterial.name);
         }
-        else
+        else {
             Debug.Log("no material attached to pen");
+        }
 
+        if (initFromStringColor)
+        {
+            if (color == "Red")
+            {
+                Red();
+            }
+            else if (color == "Green")
+            {
+                Green();
+            }
+            else if (color == "Blue")
+            {
+                Blue();
+            }
+            else if (color == "Black")
+            {
+                Black();
+            }
+        }
     }
 
     public void Red()
