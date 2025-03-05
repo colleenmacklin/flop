@@ -47,3 +47,9 @@ TagManager:
   - name: Underlaying Graphics
     uniqueID: 712943673
     locked: 0
+  - name: Line
+    uniqueID: 2850756027
+    locked: 0
+  - name: Pen
+    uniqueID: 249236925
+    locked: 0

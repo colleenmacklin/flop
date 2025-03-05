@@ -10,7 +10,7 @@ public class CutSceneHandler : MonoBehaviour
 
     private int index = -1;
     public Camera cam;
-    //public CinemachineCamera cm_cam; //for cinemachine cameras
+    public CinemachineCamera cm_cam; //for cinemachine cameras
 
     public void Start()
     {

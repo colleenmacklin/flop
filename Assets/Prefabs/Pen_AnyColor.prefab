@@ -478,6 +478,8 @@ MonoBehaviour:
   - {fileID: 4326622446481780682}
   - {fileID: 1326086018778596251}
   - {fileID: 4139102635181362214}
+  color: Blue
+  initFromStringColor: 0
   draw: {fileID: 2228967922222711110}
 --- !u!114 &2228967922222711110
 MonoBehaviour:
@@ -498,6 +500,7 @@ MonoBehaviour:
   forceDraw: 0
   lastPos: {x: 0, y: 0, z: 0}
   penPos: {x: 0, y: 0, z: 0}
+  boingBones: {fileID: 0}
   isActive: 1
   isWriting: 0
 --- !u!1 &720297736280351502
@@ -1533,6 +1536,10 @@ PrefabInstance:
       value: Brush_Red
       objectReference: {fileID: 0}
     - target: {fileID: 7809378366751749097, guid: 691b51abc4c04480b8f07b9de01bf450, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809378366751749097, guid: 691b51abc4c04480b8f07b9de01bf450, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1648,6 +1655,10 @@ PrefabInstance:
       value: Brush_Black
       objectReference: {fileID: 0}
     - target: {fileID: 7894062655701724808, guid: bd7c66bf544a04ae19dac41289aa2f36, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894062655701724808, guid: bd7c66bf544a04ae19dac41289aa2f36, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1743,6 +1754,10 @@ PrefabInstance:
       value: Brush_Green
       objectReference: {fileID: 0}
     - target: {fileID: 7669003227089579590, guid: 8ff3b63ece4964ec9849f3cdf74d8776, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669003227089579590, guid: 8ff3b63ece4964ec9849f3cdf74d8776, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1812,6 +1827,10 @@ PrefabInstance:
     - target: {fileID: 7809378366751749097, guid: 579ae477bdefc4d628a9c4da6dda71a3, type: 3}
       propertyPath: m_Name
       value: Brush_Blue_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809378366751749097, guid: 579ae477bdefc4d628a9c4da6dda71a3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
