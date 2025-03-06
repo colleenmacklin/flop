@@ -11,6 +11,7 @@ public class Draw : MonoBehaviour
     public Camera m_camera;
     public GameObject brush;
     public GameObject pen_tip;
+    public GameObject paper;
     [SerializeField] private List<GameObject> brushMarks;
 
     public bool forceDraw = false;
@@ -24,6 +25,9 @@ public class Draw : MonoBehaviour
 
     public bool isActive;
     public bool isWriting = false;
+
+    public float paperOffset = .5f;
+
 
     private void Start()
     {
@@ -72,8 +76,8 @@ public class Draw : MonoBehaviour
 
     void CreateBrush()
     {
-
-        penPos = pen_tip.transform.position;
+        penPos = new Vector3(pen_tip.transform.position.x, pen_tip.transform.position.y, paper.transform.position.z - paperOffset);
+        //penPos = pen_tip.transform.position;
         GameObject brushInstance = Instantiate(brush);
         brushMarks.Add(brushInstance);
         brushInstance.transform.position = penPos;
@@ -102,9 +106,11 @@ public class Draw : MonoBehaviour
 
     }
 
+    //CM ADDED more accurate Z
+
     void PointToPenPos()
     {
-        penPos = pen_tip.transform.position;
+        penPos = new Vector3(pen_tip.transform.position.x, pen_tip.transform.position.y, paper.transform.position.z - paperOffset); //need to shift back to be above paper
         if (lastPos != penPos)
         {
             AddAPoint(penPos);

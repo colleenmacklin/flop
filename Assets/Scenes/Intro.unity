@@ -2421,7 +2421,7 @@ PrefabInstance:
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848533].Sfx
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 46e400e8d6c524fd8a74fbfc3d737297, type: 3}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848525].Loop
       value: 0
@@ -2884,7 +2884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848533].RandomSfx.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2885804607812464393, guid: 37b05710a85604308a90a6ad61bc4ae4, type: 3}
       propertyPath: managedReferences[1343166057990848533].Timing.PlayDirection
@@ -4677,10 +4677,12 @@ MonoBehaviour:
   m_camera: {fileID: 963194227}
   brush: {fileID: 7809378366751749097, guid: 6b93659c2e52e44739429fe808fdb637, type: 3}
   pen_tip: {fileID: 146068860}
+  paper: {fileID: 0}
   brushMarks: []
   forceDraw: 0
   lastPos: {x: 0, y: 0, z: 0}
   penPos: {x: 0, y: 0, z: 0}
+  boingBones: {fileID: 0}
   isActive: 0
   isWriting: 0
 --- !u!4 &1487311843 stripped
@@ -5122,7 +5124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7720807193532597751, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720807193532597751, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
       propertyPath: m_TagString
