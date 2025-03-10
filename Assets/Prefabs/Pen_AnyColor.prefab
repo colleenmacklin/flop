@@ -193,6 +193,9 @@ GameObject:
   - component: {fileID: 3546100497291442335}
   - component: {fileID: 6605602132008059914}
   - component: {fileID: 2228967922222711110}
+  - component: {fileID: 2292405358343175958}
+  - component: {fileID: 7906528952408974137}
+  - component: {fileID: 5498063402495985008}
   m_Layer: 3
   m_Name: Pen_AnyColor
   m_TagString: Player
@@ -496,6 +499,7 @@ MonoBehaviour:
   m_camera: {fileID: 0}
   brush: {fileID: 1326086018778596251}
   pen_tip: {fileID: 3249464235578719471}
+  paper: {fileID: 0}
   brushMarks: []
   forceDraw: 0
   lastPos: {x: 0, y: 0, z: 0}
@@ -503,6 +507,57 @@ MonoBehaviour:
   boingBones: {fileID: 0}
   isActive: 1
   isWriting: 0
+  paperOffset: 1
+--- !u!114 &2292405358343175958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490568620793392693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d497fb622c454c428488f77ee218dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restPositionObj: {fileID: 0}
+  moveSpeed: 2
+--- !u!114 &7906528952408974137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490568620793392693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424e3834e182a4d11af475d5b1aeb3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  writingSounds:
+  - {fileID: 8300000, guid: 515c7c3555a95431fa11da06a555c099, type: 3}
+  - {fileID: 8300000, guid: 2e3f604d699564bee9c93c231b8c1023, type: 3}
+  - {fileID: 8300000, guid: 47c2081d7dd8647bdb0009792029a7bf, type: 3}
+  penDraw: {fileID: 2228967922222711110}
+  minSpeedThreshold: 0.05
+  maxSpeedThreshold: 2
+  baseVolume: 0.2
+  maxVolume: 1
+  basePitch: 0.8
+  maxPitch: 1.2
+  fadeDuration: 0.2
+--- !u!210 &5498063402495985008
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490568620793392693}
+  m_Enabled: 1
+  m_SortingLayerID: 249236925
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &720297736280351502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,10 +1601,6 @@ PrefabInstance:
     - target: {fileID: 8871251615050277926, guid: 691b51abc4c04480b8f07b9de01bf450, type: 3}
       propertyPath: m_CastShadows
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8871251615050277926, guid: 691b51abc4c04480b8f07b9de01bf450, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8871251615050277926, guid: 691b51abc4c04480b8f07b9de01bf450, type: 3}
       propertyPath: m_ReceiveShadows

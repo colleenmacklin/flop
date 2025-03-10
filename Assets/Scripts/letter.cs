@@ -67,26 +67,29 @@ public class letter : MonoBehaviour
         // grab MMF player component
         _scorePlayer = scorePlayer.GetComponent<MMF_Player>();
         _perfectScorePlayer = perfectScorePlayer.GetComponent<MMF_Player>();
-        score_container.SetActive(false);
+        //score_container.SetActive(false); //cm disabled
 
     }
 
-    private void TriggerScoreFeedback(float s, letter l)
+    public void TriggerScoreFeedback(float s, letter l)
     {
         //trigger scoring feedback
-        //score_container.SetActive(true);
+        //score_container.SetActive(true); //cm enabled
+
         if (l == this)
         {
+
             string myscore = s.ToString() + "%";
             MMF_FloatingText floatingText = _scorePlayer.GetFeedbackOfType<MMF_FloatingText>();
             floatingText.Value = myscore;
             _scorePlayer.DurationMultiplier = 5.0f; //not sure if this is actually doing anything!
             _scorePlayer?.PlayFeedbacks(this.gameObject.transform.position);
+            Debug.Log("triggering score feedback...." + myscore);
 
         }
     }
 
-    private void TriggerPerfectFeedback(float s, letter l)
+    public void TriggerPerfectFeedback(float s, letter l)
     {
         //trigger 100% feedback
         //score_container.SetActive(true);
@@ -118,7 +121,7 @@ public class letter : MonoBehaviour
         {
           
             isPenOver = true;
-            score_container.SetActive(true);
+            //score_container.SetActive(true);
 
         }
     }
@@ -128,7 +131,7 @@ public class letter : MonoBehaviour
     {
         if (c.gameObject.tag == "Player") { 
             isPenOver = false;
-            score_container.SetActive(false);
+            //score_container.SetActive(false);
         }
     }
 

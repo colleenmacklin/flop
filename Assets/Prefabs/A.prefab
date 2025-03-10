@@ -276,7 +276,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: 0.11999605, y: -8.840004, z: 0.36666653}
-  m_LocalScale: {x: 40, y: 40, z: 0.033333335}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.033333335}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7698840035896595272}
@@ -380,7 +380,7 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 1343166012360228868
+  - rid: 8115784635166228490
   - rid: 1343166012360228869
   - rid: 1343166167575953409
   KeepPlayModeChanges: 0
@@ -390,120 +390,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 1343166012360228868
-      type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
-      data:
-        Active: 1
-        UniqueID: 604577062
-        Label: Floating Text
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 0
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 9043938095564315220}
-        DebugActive: 0
-        Intensity: 1
-        Value: 100
-        UseIntensityAsValue: 0
-        RoundingMethod: 0
-        ForceColor: 0
-        AnimateColorGradient:
-          serializedVersion: 2
-          key0: {r: 1, g: 1, b: 1, a: 1}
-          key1: {r: 1, g: 1, b: 1, a: 1}
-          key2: {r: 0, g: 0, b: 0, a: 0}
-          key3: {r: 0, g: 0, b: 0, a: 0}
-          key4: {r: 0, g: 0, b: 0, a: 0}
-          key5: {r: 0, g: 0, b: 0, a: 0}
-          key6: {r: 0, g: 0, b: 0, a: 0}
-          key7: {r: 0, g: 0, b: 0, a: 0}
-          ctime0: 0
-          ctime1: 65535
-          ctime2: 0
-          ctime3: 0
-          ctime4: 0
-          ctime5: 0
-          ctime6: 0
-          ctime7: 0
-          atime0: 0
-          atime1: 65535
-          atime2: 0
-          atime3: 0
-          atime4: 0
-          atime5: 0
-          atime6: 0
-          atime7: 0
-          m_Mode: 0
-          m_ColorSpace: -1
-          m_NumColorKeys: 2
-          m_NumAlphaKeys: 2
-        ForceLifetime: 0
-        Lifetime: 0.5
-        PositionMode: 0
-        TargetTransform: {fileID: 4309134277883980476}
-        Direction: {x: 0, y: 0, z: 0}
     - rid: 1343166012360228869
       type: {class: MMF_Particles, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
@@ -770,6 +656,120 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
+    - rid: 8115784635166228490
+      type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 604577062
+        Label: Floating Text
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 0
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 9043938095564315220}
+        DebugActive: 0
+        Intensity: 1
+        Value: 100
+        UseIntensityAsValue: 0
+        RoundingMethod: 0
+        ForceColor: 0
+        AnimateColorGradient:
+          serializedVersion: 2
+          key0: {r: 1, g: 1, b: 1, a: 1}
+          key1: {r: 1, g: 1, b: 1, a: 1}
+          key2: {r: 0, g: 0, b: 0, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65535
+          ctime2: 0
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_ColorSpace: -1
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 2
+        ForceLifetime: 1
+        Lifetime: 2
+        PositionMode: 1
+        TargetTransform: {fileID: 0}
+        Direction: {x: 0, y: 0, z: 0}
 --- !u!1 &4948168685143737564
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +797,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: 0.11999605, y: -8.840004, z: 0.36666653}
-  m_LocalScale: {x: 40, y: 40, z: 0.033333335}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.033333335}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7698840035896595272}
@@ -901,129 +901,15 @@ MonoBehaviour:
         m_Calls: []
   DebugActive: 0
   FeedbacksList:
-  - rid: 1343165853400039424
+  - rid: 8115784635166228489
   - rid: 1343166167575953408
   KeepPlayModeChanges: 0
   PerformanceMode: 0
   StopFeedbacksOnDisable: 0
-  PlayCount: 0
+  PlayCount: 4
   references:
     version: 2
     RefIds:
-    - rid: 1343165853400039424
-      type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
-      data:
-        Active: 1
-        UniqueID: 604577062
-        Label: Floating Text
-        ChannelMode: 0
-        Channel: 0
-        MMChannelDefinition: {fileID: 0}
-        Chance: 100
-        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
-        Timing:
-          TimescaleMode: 0
-          ExcludeFromHoldingPauses: 0
-          ContributeToTotalDuration: 1
-          InitialDelay: 0
-          CooldownDuration: 0
-          InterruptsOnStop: 1
-          NumberOfRepeats: 0
-          RepeatForever: 0
-          DelayBetweenRepeats: 1
-          PlayCount: 0
-          LimitPlayCount: 0
-          MaxPlayCount: 3
-          SetPlayCountToZeroOnReset: 0
-          MMFeedbacksDirectionCondition: 0
-          PlayDirection: 0
-          ConstantIntensity: 0
-          UseIntensityInterval: 0
-          IntensityIntervalMin: 0
-          IntensityIntervalMax: 0
-          Sequence: {fileID: 0}
-          TrackID: 0
-          Quantized: 0
-          TargetBPM: 120
-        AutomatedTargetAcquisition:
-          Mode: 0
-          ChildIndex: 0
-        RandomizeOutput: 0
-        RandomMultiplier: {x: 0.8, y: 1}
-        RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
-        UseRange: 0
-        RangeDistance: 5
-        UseRangeFalloff: 0
-        RangeFalloff:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        RemapRangeFalloff: {x: 0, y: 1}
-        AutomaticShakerSetupButton:
-          ButtonText: 
-        Owner: {fileID: 3950690730829296024}
-        DebugActive: 0
-        Intensity: 1
-        Value: 100
-        UseIntensityAsValue: 0
-        RoundingMethod: 0
-        ForceColor: 0
-        AnimateColorGradient:
-          serializedVersion: 2
-          key0: {r: 1, g: 1, b: 1, a: 1}
-          key1: {r: 1, g: 1, b: 1, a: 1}
-          key2: {r: 0, g: 0, b: 0, a: 0}
-          key3: {r: 0, g: 0, b: 0, a: 0}
-          key4: {r: 0, g: 0, b: 0, a: 0}
-          key5: {r: 0, g: 0, b: 0, a: 0}
-          key6: {r: 0, g: 0, b: 0, a: 0}
-          key7: {r: 0, g: 0, b: 0, a: 0}
-          ctime0: 0
-          ctime1: 65535
-          ctime2: 0
-          ctime3: 0
-          ctime4: 0
-          ctime5: 0
-          ctime6: 0
-          ctime7: 0
-          atime0: 0
-          atime1: 65535
-          atime2: 0
-          atime3: 0
-          atime4: 0
-          atime5: 0
-          atime6: 0
-          atime7: 0
-          m_Mode: 0
-          m_ColorSpace: -1
-          m_NumColorKeys: 2
-          m_NumAlphaKeys: 2
-        ForceLifetime: 1
-        Lifetime: 1
-        PositionMode: 1
-        TargetTransform: {fileID: 0}
-        Direction: {x: 0, y: 0, z: 0}
     - rid: 1343166167575953408
       type: {class: MMF_MMSoundManagerSound, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
       data:
@@ -1207,6 +1093,120 @@ MonoBehaviour:
           ButtonText: Debug Stop Sound
         ResetSequentialIndexButton:
           ButtonText: Reset Sequential Index
+    - rid: 8115784635166228489
+      type: {class: MMF_FloatingText, ns: MoreMountains.Feedbacks, asm: MoreMountains.Tools}
+      data:
+        Active: 1
+        UniqueID: 604577062
+        Label: Floating Text
+        ChannelMode: 0
+        Channel: 0
+        MMChannelDefinition: {fileID: 0}
+        Chance: 100
+        DisplayColor: {r: 0, g: 0, b: 0, a: 1}
+        Timing:
+          TimescaleMode: 0
+          ExcludeFromHoldingPauses: 0
+          ContributeToTotalDuration: 1
+          InitialDelay: 0
+          CooldownDuration: 0
+          InterruptsOnStop: 1
+          NumberOfRepeats: 0
+          RepeatForever: 0
+          DelayBetweenRepeats: 1
+          PlayCount: 4
+          LimitPlayCount: 0
+          MaxPlayCount: 3
+          SetPlayCountToZeroOnReset: 0
+          MMFeedbacksDirectionCondition: 0
+          PlayDirection: 0
+          ConstantIntensity: 0
+          UseIntensityInterval: 0
+          IntensityIntervalMin: 0
+          IntensityIntervalMax: 0
+          Sequence: {fileID: 0}
+          TrackID: 0
+          Quantized: 0
+          TargetBPM: 120
+        AutomatedTargetAcquisition:
+          Mode: 0
+          ChildIndex: 0
+        RandomizeOutput: 0
+        RandomMultiplier: {x: 0.8, y: 1}
+        RandomizeDuration: 0
+        RandomDurationMultiplier: {x: 0.5, y: 2}
+        UseRange: 0
+        RangeDistance: 5
+        UseRangeFalloff: 0
+        RangeFalloff:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        RemapRangeFalloff: {x: 0, y: 1}
+        AutomaticShakerSetupButton:
+          ButtonText: 
+        Owner: {fileID: 3950690730829296024}
+        DebugActive: 0
+        Intensity: 1
+        Value: 100
+        UseIntensityAsValue: 0
+        RoundingMethod: 0
+        ForceColor: 0
+        AnimateColorGradient:
+          serializedVersion: 2
+          key0: {r: 1, g: 1, b: 1, a: 1}
+          key1: {r: 1, g: 1, b: 1, a: 1}
+          key2: {r: 0, g: 0, b: 0, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 65535
+          ctime2: 0
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 65535
+          atime2: 0
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_ColorSpace: -1
+          m_NumColorKeys: 2
+          m_NumAlphaKeys: 2
+        ForceLifetime: 1
+        Lifetime: 2
+        PositionMode: 1
+        TargetTransform: {fileID: 0}
+        Direction: {x: 0, y: 0, z: 0}
 --- !u!1 &5867574679275384611
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,8 +6076,8 @@ Transform:
   m_GameObject: {fileID: 6893079452379213423}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.11999605, y: -8.840004, z: 0}
-  m_LocalScale: {x: 3.3333335, y: 2.6666667, z: 3.3333335}
+  m_LocalPosition: {x: 0, y: -8.8, z: 0.00000025431314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7698840035896595272}
@@ -6095,14 +6095,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChannelMode: 0
-  Channel: 0
+  Channel: 1
   MMChannelDefinition: {fileID: 0}
   CanSpawn: 1
   UseUnscaledTime: 0
   PoolerMode: 0
   PooledSimpleMMFloatingText: {fileID: 162915577692626259}
   PooledMultipleMMFloatingText: []
-  PoolSize: 20
+  PoolSize: 1
   NestWaitingPool: 1
   MutualizeWaitingPools: 1
   PoolCanExpand: 1
@@ -6164,7 +6164,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  AnimateZ: 1
+  AnimateZ: 0
   RemapZZero: {x: 0, y: 0}
   RemapZOne: {x: 1, y: 1}
   AnimateZCurve:
@@ -6192,13 +6192,13 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   AlignmentMode: 0
-  FixedAlignment: {x: 0, y: 0, z: 0}
+  FixedAlignment: {x: 0, y: 1, z: 0}
   AlwaysFaceCamera: 1
   AutoGrabMainCameraOnStart: 1
   TargetCamera: {fileID: 0}
   AnimateScale: 1
   RemapScaleZero: {x: 0, y: 0}
-  RemapScaleOne: {x: 20, y: 20}
+  RemapScaleOne: {x: 3, y: 3}
   AnimateScaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -6245,24 +6245,24 @@ MonoBehaviour:
   AnimateColorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 0}
-    key1: {r: 1, g: 0.6, b: 0.6, a: 1}
-    key2: {r: 1, g: 0, b: 0.37877178, a: 0}
+    key1: {r: 1, g: 0, b: 0.18786764, a: 0.72156864}
+    key2: {r: 0, g: 0, b: 0, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 15227
-    ctime2: 65535
+    ctime1: 65535
+    ctime2: 0
     ctime3: 0
     ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 18119
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
@@ -6270,9 +6270,9 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  AnimateOpacity: 1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 3
+  AnimateOpacity: 0
   RemapOpacityZero: {x: 0, y: 0}
   RemapOpacityOne: {x: 1, y: 1}
   AnimateOpacityCurve:
@@ -6323,7 +6323,7 @@ MonoBehaviour:
   IntensityMovementMultiplier: 1
   IntensityImpactsScale: 0
   IntensityScaleMultiplier: 1
-  DebugRandomValue: {x: 100, y: 100}
+  DebugRandomValue: {x: 100, y: 500}
   DebugInterval: {x: 0.3, y: 0.5}
   TestSpawnOneBtn: 0
   TestSpawnManyBtn: 0
@@ -7817,18 +7817,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 7698840035896595272}
     m_Modifications:
     - target: {fileID: 7785295853672088418, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785295853672088418, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785295853672088418, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.033333335
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785295853672088418, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4400014
       objectReference: {fileID: 0}
@@ -7871,10 +7859,6 @@ PrefabInstance:
     - target: {fileID: 7785295853672088445, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
       propertyPath: m_Name
       value: MMFloatingTextMeshPro
-      objectReference: {fileID: 0}
-    - target: {fileID: 8042657054365514525, guid: 0453e37c3c22e7145b8c23c7fa96de36, type: 3}
-      propertyPath: m_enableVertexGradient
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

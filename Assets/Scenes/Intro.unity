@@ -4669,7 +4669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487311835}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 12867ce9882d3405690d843c7d16088a, type: 3}
   m_Name: 
@@ -4685,6 +4685,7 @@ MonoBehaviour:
   boingBones: {fileID: 0}
   isActive: 0
   isWriting: 0
+  paperOffset: 0.5
 --- !u!4 &1487311843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc891cf2c1c494e4f96c821568b3e322, type: 3}

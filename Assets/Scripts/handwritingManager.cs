@@ -22,6 +22,7 @@ public class handwritingManager : MonoBehaviour
     private pad paper;
     [Header("References")]
     public Timer timer;
+    public bool isPaused;
     [SerializeField] private letter _letter;
     [SerializeField] private GameObject [] _lettersGO;
     [SerializeField] private CutSceneHandler cutscenehandler;
@@ -115,6 +116,7 @@ public class handwritingManager : MonoBehaviour
         //Setup the next letter in the sequence
         cameraZoom.target = _letter.currentLetter.transform;
         StartCoroutine(introCutscene(CutSceneDuration));
+        isPaused = false;
     }
 
     void playEnding()
@@ -138,22 +140,20 @@ public class handwritingManager : MonoBehaviour
 
         if (CurrentGameState == GameState.Loop)
         {
-            /*
-            if (Input.GetKeyDown(KeyCode.M))
+            
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                Debug.Log("menu");
-                if (menu.menuOpen == true)
+                Debug.Log("pause");
+                if (isPaused == false)
                 {
-                    menu.moveOut();
                     timer.TimerOn = true;
                 }
                 else {
                     timer.TimerOn = false;
-
-                    menu.moveIn();
+                    isPaused = true;
                 }
             }
-            */
+            
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("make easier");

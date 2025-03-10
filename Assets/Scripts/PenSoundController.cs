@@ -4,7 +4,8 @@ using System.Collections;
 
 public class PenSoundManager : MonoBehaviour
 {
-    public AudioClip[] writingSounds; 
+    public AudioClip[] writingSounds;
+    public Draw penDraw;
     public float minSpeedThreshold = 0.05f;
     public float maxSpeedThreshold = 2.0f; 
     public float baseVolume = 0.2f;
@@ -26,7 +27,7 @@ public class PenSoundManager : MonoBehaviour
         penSpeed = (transform.position - lastPosition).magnitude / Time.deltaTime;
         lastPosition = transform.position;
 
-        if (penSpeed > minSpeedThreshold)
+        if (penSpeed > minSpeedThreshold && penDraw.isWriting)
         {
             PlayOrUpdateWritingSound();
         }

@@ -41,6 +41,7 @@ public class GameAudio : MonoBehaviour
             volumeDown();
         }
 
+        
         if (Input.GetKeyDown(KeyCode.Plus))
         {
             volumeUp();
@@ -51,8 +52,6 @@ public class GameAudio : MonoBehaviour
             changeTrack();
 
         }
-
-
 
     }
 
@@ -81,9 +80,16 @@ public class GameAudio : MonoBehaviour
     }
 
     
+    private void volumeUp()
+    {
+        //MMSoundManagerSoundControlEvent.Trigger(MMSoundManagerSoundControlEvent)
+    }
 
 
+    private void volumeDown()
+    {
 
+    }
 
     public void playSound(AudioClip sound)
     {
