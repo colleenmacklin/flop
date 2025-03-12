@@ -206,6 +206,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2943239575364281437, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
+      propertyPath: FeedbacksList.Array.data[4]
+      value: 8115784635166228480
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943239575364281437, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
+      propertyPath: FeedbacksList.Array.data[5]
+      value: 8115784631498833922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943239575364281437, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
+      propertyPath: managedReferences[8115784635166228480].Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943239575364281437, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
+      propertyPath: managedReferences[8115784635166228480].ControlMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5347392853643428091, guid: c6e04cf9e50994d21afc852db7865f4d, type: 3}
       propertyPath: soundManager
       value: 

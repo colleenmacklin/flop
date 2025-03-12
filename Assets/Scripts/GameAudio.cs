@@ -20,12 +20,30 @@ public class GameAudio : MonoBehaviour
     public MMF_Player muteFeedback;
     public MMF_Player unMuteFeedback;
 
+    public bool isPlaying;
 
 
     private void Start()
     {
+        Debug.Log("Starting up sounds");
+        if (soundManager == null)
+        {
+            Debug.Log("can't find soundManager");
+            soundManager = GetComponent<MMSoundManager>();
+        }
+        else
+        {
+            Debug.Log("found soundManager");
+        }
+        startupSoundsFeedback.Initialization();
         startupSoundsFeedback.PlayFeedbacks();
         musicMuted = false;
+    }
+
+    public void checkIfPlaying()
+    {
+        Debug.Log("Should be playing!");
+        isPlaying = true;
     }
 
     private void Update()
@@ -116,7 +134,7 @@ public class GameAudio : MonoBehaviour
         options.Fade = true;
         options.Persistent = true;
         options.Loop = true;
-        Debug.Log("opetions"+options);
+        Debug.Log("options"+options);
         //event call with options
         MMSoundManagerSoundPlayEvent.Trigger(music, options);
     }

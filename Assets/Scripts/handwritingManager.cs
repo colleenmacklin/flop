@@ -146,11 +146,12 @@ public class handwritingManager : MonoBehaviour
                 Debug.Log("pause");
                 if (isPaused == false)
                 {
-                    timer.TimerOn = true;
-                }
-                else {
                     timer.TimerOn = false;
                     isPaused = true;
+                }
+                else {
+                    timer.TimerOn = true;
+                    isPaused = false;
                 }
             }
             
