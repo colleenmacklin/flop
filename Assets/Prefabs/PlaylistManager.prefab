@@ -54,7 +54,7 @@ MonoBehaviour:
   AutoHandleApplicationPause: 1
   FadeIn: 1
   FadeOut: 1
-  FadeDuration: 2
+  FadeDuration: 1
   FadeTween:
     MMTweenDefinitionType: 0
     MMTweenCurve: 4
